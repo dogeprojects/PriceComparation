@@ -6,6 +6,5 @@
         android:id="@+id/change_theme"
         app:showAsAction="always"
         android:icon="@drawable/ic_autorenew_black_24dp"
-        android:title="@string/changeThemeHint"
-        android:colorPrimaryDark="@color/colorPrimaryDark"/>
+        android:title="@string/changeThemeHint"/>
 </menu>

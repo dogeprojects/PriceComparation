@@ -1,4 +1,4 @@
-package com.CostPerKG;
+package com.priceperkilo;
 
 import org.junit.Test;
 

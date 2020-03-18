@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    <color name="colorPrimaryDark">#14569C</color>
+    <color name="colorPrimary">#14569C</color>-->
+    <color name="colorPrimaryDark">#275387</color>
+    <color name="colorPrimary">#315E93</color>
+    <color name="colorAccent">#3fc4fe</color>
+    <color name="textColorPrimary">#75FFFFFF</color>
+    <color name="textColor">#FFFFFF</color>
+    <color name="hintColor">#3fc4fe</color>
+    <!--<color name="colorBackground">#2c3e50</color>-->
+    <color name="colorBackground">#333333</color>
+    <color name="cardBackgroundColor">#456a94</color>
+    <color name="versionColor">#66FFFFFF</color>
+
+</resources>

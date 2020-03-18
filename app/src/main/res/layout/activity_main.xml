@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="#E0E0E0">
+    style="@style/LinearLayout">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -139,31 +139,16 @@
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
-            <!-- ====================== The calculate button ====================== -->
-            <Button
-                android:id="@+id/buttonResult"
-                android:layout_width="match_parent"
+            <!-- ====================== The version TextView ====================== -->
+            <TextView
+                android:id="@+id/textViewVersion"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
-                android:layout_marginTop="5dp"
-                android:background="#2E82C7"
-                android:onClick="onClick"
-                android:padding="10dp"
-                android:text="@string/buttonCalculate"
-                android:textColor="#EEE4E4"
-                android:textSize="15sp"
-                android:visibility="invisible" />
-
-                <TextView
-                    android:id="@+id/textViewVersion"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="0dp"
-                    android:gravity="center_horizontal"
-                    android:hint="@string/textViewVersion"
-                    android:textSize="14sp" />
-
+                android:layout_marginTop="30dp"
+                android:gravity="center_horizontal"
+                android:hint="@string/textViewVersion"
+                android:textSize="14sp"
+                android:textColorHint="@color/versionColor"/>
         </TableLayout>
     </ScrollView>
 </LinearLayout>

@@ -1,4 +1,4 @@
-package com.CostPerKG;
+package com.priceperkilo;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
