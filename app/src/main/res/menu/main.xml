@@ -2,9 +2,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
+    <item
+        android:id="@+id/hide_button"
+        app:showAsAction="ifRoom"
+        android:onClick="onButtonHideClick"
+        android:title="@string/Hide"/>
+    <item
+        android:id="@+id/clear_button"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_clear_all_black_24dp"
+        android:title="@string/changeThemeHint"/>
     <item
         android:id="@+id/change_theme"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         android:icon="@drawable/ic_autorenew_black_24dp"
         android:title="@string/changeThemeHint"/>
 </menu>

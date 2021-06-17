@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">Products price per kilo</string>
+    <string name="app_name">Price Comparison</string>
 
     <string name="changeThemeHint">Change theme</string>
+    <string name="Hide">Hide</string>
 
     <string name="editTextProduct1">The first product or shop</string>
     <string name="editTextPricePlaceholder1">Price, RUB</string>
@@ -20,7 +21,17 @@
     <string name="editTextWeightPlaceholder3">Weight, gram</string>
     <string name="textViewPricePerKg3">Price per kg</string>
 
+    <string name="editTextProduct4">The fourth product or shop</string>
+    <string name="editTextPricePlaceholder4">Price, RUB</string>
+    <string name="editTextWeightPlaceholder4">Weight, gram</string>
+    <string name="textViewPricePerKg4">Price per kg</string>
+
+    <string name="editTextProduct5">The fifth product or shop</string>
+    <string name="editTextPricePlaceholder5">Price, RUB</string>
+    <string name="editTextWeightPlaceholder5">Weight, gram</string>
+    <string name="textViewPricePerKg5">Price per kg</string>
+
     <string name="buttonCalculate">Calculate</string>
 
-    <string name="textViewVersion">Version: 1.2.20.031801</string>
+    <string name="textViewVersion">Version: 1.4.21.061501</string>
 </resources>

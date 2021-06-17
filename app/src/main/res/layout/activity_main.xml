@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout android:layout_width="match_parent"
+<!--suppress ALL -->
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -32,13 +34,16 @@
                     <EditText
                         android:id="@+id/editTextProduct1"
                         style="@style/EditTextDescriptionStyle"
-                        android:hint="@string/editTextProduct1"/>
+                        android:hint="@string/editTextProduct1"
+                        android:onClick="onButtonHideClick"
+                        tools:ignore="OnClick" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="138dp"
                     android:orientation="horizontal"
-                    android:paddingTop="50sp">
+                    android:paddingTop="50sp"
+                    android:id="@+id/LinearLayout1">
                     <EditText
                         android:id="@+id/editTextPrice1"
                         style="@style/EditTextStyle"
@@ -136,6 +141,84 @@
                         android:textSize="20sp"
                         android:id="@+id/textViewPricePerKg3"
                         android:hint="@string/textViewPricePerKg3"/>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <!-- ====================== The fourth product ====================== -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_view4"
+                style="@style/CardViewStyle">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+                    <EditText
+                        android:id="@+id/editTextProduct4"
+                        style="@style/EditTextDescriptionStyle"
+                        android:hint="@string/editTextProduct4"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="138dp"
+                    android:orientation="horizontal"
+                    android:paddingTop="50sp">
+                    <EditText
+                        android:id="@+id/editTextPrice4"
+                        style="@style/EditTextStyle"
+                        android:gravity="center"
+                        android:hint="@string/editTextPricePlaceholder4"/>
+                    <EditText
+                        android:id="@+id/editTextWeight4"
+                        style="@style/EditTextStyle"
+                        android:gravity="center"
+                        android:hint="@string/editTextWeightPlaceholder4"/>
+                    <TextView
+                        style="@style/EditTextStyle"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:id="@+id/textViewPricePerKg4"
+                        android:hint="@string/textViewPricePerKg4"/>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <!-- ====================== The fifth product ====================== -->
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_view5"
+                style="@style/CardViewStyle">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+                    <EditText
+                        android:id="@+id/editTextProduct5"
+                        style="@style/EditTextDescriptionStyle"
+                        android:hint="@string/editTextProduct5"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="138dp"
+                    android:orientation="horizontal"
+                    android:paddingTop="50sp">
+                    <EditText
+                        android:id="@+id/editTextPrice5"
+                        style="@style/EditTextStyle"
+                        android:gravity="center"
+                        android:hint="@string/editTextPricePlaceholder5"/>
+                    <EditText
+                        android:id="@+id/editTextWeight5"
+                        style="@style/EditTextStyle"
+                        android:gravity="center"
+                        android:hint="@string/editTextWeightPlaceholder5"/>
+                    <TextView
+                        style="@style/EditTextStyle"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:id="@+id/textViewPricePerKg5"
+                        android:hint="@string/textViewPricePerKg5"/>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
