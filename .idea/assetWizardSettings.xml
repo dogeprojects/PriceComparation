@@ -147,9 +147,10 @@
                         </option>
                         <option name="values">
                           <map>
+                            <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_clear_all_black_24dp" />
-                            <entry key="sourceFile" value="D:\clear_all-24px .svg" />
+                            <entry key="outputName" value="ic_addtolist" />
+                            <entry key="sourceFile" value="D:\AddToList.svg" />
                           </map>
                         </option>
                       </PersistentState>

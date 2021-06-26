@@ -7,12 +7,13 @@
         android:id="@+id/hide_button"
         app:showAsAction="ifRoom"
         android:onClick="onButtonHideClick"
+        android:icon="@drawable/ic_addtolist"
         android:title="@string/Hide"/>
     <item
         android:id="@+id/clear_button"
         app:showAsAction="ifRoom"
         android:icon="@drawable/ic_clear_all_black_24dp"
-        android:title="@string/changeThemeHint"/>
+        android:title="@string/clearFieldsHint"/>
     <item
         android:id="@+id/change_theme"
         app:showAsAction="ifRoom"

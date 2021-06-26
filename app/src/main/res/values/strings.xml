@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Price Comparison</string>
 
+    <string name="clearFieldsHint">Clear fields</string>
     <string name="changeThemeHint">Change theme</string>
     <string name="Hide">Hide</string>
 
@@ -31,7 +32,5 @@
     <string name="editTextWeightPlaceholder5">Weight, gram</string>
     <string name="textViewPricePerKg5">Price per kg</string>
 
-    <string name="buttonCalculate">Calculate</string>
-
-    <string name="textViewVersion">Version: 1.4.21.061501</string>
+    <string name="textViewVersion">Version: 1.4.21.062104</string>
 </resources>

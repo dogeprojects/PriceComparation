@@ -4,47 +4,52 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.ParseException;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
-//TODO implementation clear button
 //TODO localisation
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText mEditTextPrice1;
-    private TextView mEditTextWeight1;
-    private TextView textViewPricePerKg1;
-    private TextView textViewVersion;
+    EditText mEditTextPrice1;
+    TextView mEditTextWeight1;
 
     EditText mEditTextPrice2;
     TextView mEditTextWeight2;
-    TextView textViewPricePerKg2;
 
     EditText mEditTextPrice3;
     TextView mEditTextWeight3;
-    TextView textViewPricePerKg3;
 
     EditText mEditTextPrice4;
     TextView mEditTextWeight4;
-    TextView textViewPricePerKg4;
 
     EditText mEditTextPrice5;
     TextView mEditTextWeight5;
-    TextView textViewPricePerKg5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         // Restore saved application state
         SharedPreferences mPrefs = getSharedPreferences("THEME", 0);
         boolean theme_boolean = mPrefs.getBoolean("theme_boolean", true);
@@ -89,40 +94,38 @@ public class MainActivity extends AppCompatActivity {
 
         mEditTextPrice5.addTextChangedListener(new TextChangeWatcher());
         mEditTextWeight5.addTextChangedListener(new TextChangeWatcher());
+
+        CardView cardViewC4 = findViewById(R.id.card_view4);
+        CardView cardViewC5 = findViewById(R.id.card_view5);
+
+        cardViewC4.setVisibility(View.INVISIBLE);
+        cardViewC5.setVisibility(View.INVISIBLE);
+
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-       getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     // Hide textEdit button handle
     public void onButtonHideClick(MenuItem item) {
-        EditText editTextProduct1 = findViewById(R.id.editTextProduct1);
-        EditText editTextProduct2 = findViewById(R.id.editTextProduct2);
-        EditText editTextProduct3 = findViewById(R.id.editTextProduct3);
-        EditText editTextProduct4 = findViewById(R.id.editTextProduct4);
-        EditText editTextProduct5 = findViewById(R.id.editTextProduct5);
+
+        CardView cardViewC4 = findViewById(R.id.card_view4);
+        CardView cardViewC5 = findViewById(R.id.card_view5);
 
         //Toggle
-        if (editTextProduct1.getVisibility() == View.VISIBLE) {
-            editTextProduct1.setVisibility(View.INVISIBLE);
-            editTextProduct2.setVisibility(View.INVISIBLE);
-            editTextProduct3.setVisibility(View.INVISIBLE);
-            editTextProduct4.setVisibility(View.INVISIBLE);
-            editTextProduct5.setVisibility(View.INVISIBLE);
-            Toast.makeText(this, "Fields have been hidden", Toast.LENGTH_SHORT).show();
-        } else {
-            editTextProduct1.setVisibility(View.VISIBLE);
-            editTextProduct2.setVisibility(View.VISIBLE);
-            editTextProduct3.setVisibility(View.VISIBLE);
-            editTextProduct4.setVisibility(View.VISIBLE);
-            editTextProduct5.setVisibility(View.VISIBLE);
+        if (cardViewC4.getVisibility() == View.INVISIBLE) {
+            cardViewC4.setVisibility(View.VISIBLE);
+            cardViewC5.setVisibility(View.VISIBLE);
             Toast.makeText(this, "Fields have been shown", Toast.LENGTH_SHORT).show();
+        } else {
+            cardViewC4.setVisibility(View.INVISIBLE);
+            cardViewC5.setVisibility(View.INVISIBLE);
+            Toast.makeText(this, "Fields have been hidden", Toast.LENGTH_SHORT).show();
         }
-
-
     }
 
     // Change theme button handle
@@ -146,7 +149,6 @@ public class MainActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT);
             toast.show();
         }
-        //return true;
 
         if (item.getItemId() == R.id.clear_button) {
             final TextView editTextProduct1 = findViewById(R.id.editTextProduct1);
@@ -217,25 +219,23 @@ public class MainActivity extends AppCompatActivity {
     class TextChangeWatcher implements TextWatcher {
         final EditText editTextPrice1 = findViewById(R.id.editTextPrice1);
         final TextView editTextWeight1 = findViewById(R.id.editTextWeight1);
-        final TextView textViewPricePerKg1 = findViewById(R.id.textViewPricePerKg1);
+        final TextView textViewPrice1 = findViewById(R.id.textViewPricePerKg1);
 
         final EditText editTextPrice2 = findViewById(R.id.editTextPrice2);
         final TextView editTextWeight2 = findViewById(R.id.editTextWeight2);
-        final TextView textViewPricePerKg2 = findViewById(R.id.textViewPricePerKg2);
+        final TextView textViewPrice2 = findViewById(R.id.textViewPricePerKg2);
 
         final EditText editTextPrice3 = findViewById(R.id.editTextPrice3);
         final TextView editTextWeight3 = findViewById(R.id.editTextWeight3);
-        final TextView textViewPricePerKg3 = findViewById(R.id.textViewPricePerKg3);
+        final TextView textViewPrice3 = findViewById(R.id.textViewPricePerKg3);
 
         final EditText editTextPrice4 = findViewById(R.id.editTextPrice4);
         final TextView editTextWeight4 = findViewById(R.id.editTextWeight4);
-        final TextView textViewPricePerKg4 = findViewById(R.id.textViewPricePerKg4);
+        final TextView textViewPrice4 = findViewById(R.id.textViewPricePerKg4);
 
         final EditText editTextPrice5 = findViewById(R.id.editTextPrice5);
         final TextView editTextWeight5 = findViewById(R.id.editTextWeight5);
-        final TextView textViewPricePerKg5 = findViewById(R.id.textViewPricePerKg5);
-
-        final TextView textViewVersion = findViewById(R.id.textViewVersion);
+        final TextView textViewPrice5 = findViewById(R.id.textViewPricePerKg5);
 
         TextChangeWatcher() {
         }
@@ -248,6 +248,7 @@ public class MainActivity extends AppCompatActivity {
         public void onTextChanged(CharSequence s, int start, int before, int count) {
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.N)
         @SuppressLint({"DefaultLocale", "SetTextI18n"})
         @Override
         public void afterTextChanged(Editable editable) {
@@ -257,14 +258,14 @@ public class MainActivity extends AppCompatActivity {
                 if ((editTextPrice1.getText().toString().equals("."))
                         || editTextWeight1.getText().toString().equals(".")
                         || editTextWeight1.getText().toString().equals("0")) {
-                    textViewPricePerKg1.setText("0.00");
+                    textViewPrice1.setText("0.00");
                 } else if ((editTextPrice1.getText().toString().isEmpty()
                         || (editTextWeight1.getText().toString().isEmpty()))) {
-                    textViewPricePerKg1.setText("");
+                    textViewPrice1.setText("");
                 } else {
                     float mPrice1 = Float.parseFloat(editTextPrice1.getText().toString());
                     float mWeight1 = Float.parseFloat(editTextWeight1.getText().toString());
-                    textViewPricePerKg1.setText(String.format("%.2f", mPrice1 * 1000 / mWeight1));
+                    textViewPrice1.setText(String.format("%.2f", mPrice1 * 1000 / mWeight1));
                 }
             }
             // ------------------- The second product -------------------
@@ -273,14 +274,14 @@ public class MainActivity extends AppCompatActivity {
                 if ((editTextPrice2.getText().toString().equals("."))
                         || editTextWeight2.getText().toString().equals(".")
                         || editTextWeight2.getText().toString().equals("0")) {
-                    textViewPricePerKg2.setText("0.00");
+                    textViewPrice2.setText("0.00");
                 } else if ((editTextPrice2.getText().toString().isEmpty()
                         || (editTextWeight2.getText().toString().isEmpty()))) {
-                    textViewPricePerKg2.setText("");
+                    textViewPrice2.setText("");
                 } else {
                     float mPrice2 = Float.parseFloat(editTextPrice2.getText().toString());
                     float mWeight2 = Float.parseFloat(editTextWeight2.getText().toString());
-                    textViewPricePerKg2.setText(String.format("%.2f", mPrice2 * 1000 / mWeight2));
+                    textViewPrice2.setText(String.format("%.2f", mPrice2 * 1000 / mWeight2));
                 }
 
             }
@@ -290,14 +291,14 @@ public class MainActivity extends AppCompatActivity {
                 if ((editTextPrice3.getText().toString().equals("."))
                         || editTextWeight3.getText().toString().equals(".")
                         || editTextWeight3.getText().toString().equals("0")) {
-                    textViewPricePerKg3.setText("0.00");
+                    textViewPrice3.setText("0.00");
                 } else if ((editTextPrice3.getText().toString().isEmpty()
                         || (editTextWeight3.getText().toString().isEmpty()))) {
-                    textViewPricePerKg3.setText("");
+                    textViewPrice3.setText("");
                 } else {
                     float mPrice3 = Float.parseFloat(editTextPrice3.getText().toString());
                     float mWeight3 = Float.parseFloat(editTextWeight3.getText().toString());
-                    textViewPricePerKg3.setText(String.format("%.2f", mPrice3 * 1000 / mWeight3));
+                    textViewPrice3.setText(String.format("%.2f", mPrice3 * 1000 / mWeight3));
                 }
             }
 
@@ -307,141 +308,105 @@ public class MainActivity extends AppCompatActivity {
                 if ((editTextPrice4.getText().toString().equals("."))
                         || editTextWeight4.getText().toString().equals(".")
                         || editTextWeight4.getText().toString().equals("0")) {
-                    textViewPricePerKg4.setText("0.00");
+                    textViewPrice4.setText("0.00");
                 } else if ((editTextPrice4.getText().toString().isEmpty()
                         || (editTextWeight4.getText().toString().isEmpty()))) {
-                    textViewPricePerKg4.setText("");
+                    textViewPrice4.setText("");
                 } else {
                     float mPrice4 = Float.parseFloat(editTextPrice4.getText().toString());
                     float mWeight4 = Float.parseFloat(editTextWeight4.getText().toString());
-                    textViewPricePerKg4.setText(String.format("%.2f", mPrice4 * 1000 / mWeight4));
+                    textViewPrice4.setText(String.format("%.2f", mPrice4 * 1000 / mWeight4));
                 }
             }
 
-            // ------------------- The fourth product -------------------
+            // ------------------- The fifth product -------------------
             if ((editable == editTextPrice5.getEditableText())
                     || (editable == editTextWeight5.getEditableText())) {
                 if ((editTextPrice5.getText().toString().equals("."))
                         || editTextWeight5.getText().toString().equals(".")
                         || editTextWeight5.getText().toString().equals("0")) {
-                    textViewPricePerKg5.setText("0.00");
+                    textViewPrice5.setText("0.00");
                 } else if ((editTextPrice5.getText().toString().isEmpty()
                         || (editTextWeight5.getText().toString().isEmpty()))) {
-                    textViewPricePerKg5.setText("");
+                    textViewPrice5.setText("");
                 } else {
                     float mPrice5 = Float.parseFloat(editTextPrice5.getText().toString());
                     float mWeight5 = Float.parseFloat(editTextWeight5.getText().toString());
-                    textViewPricePerKg5.setText(String.format("%.2f", mPrice5 * 1000 / mWeight5));
+                    textViewPrice5.setText(String.format("%.2f", mPrice5 * 1000 / mWeight5));
                 }
             }
 
-            //String finalPrice1 = textViewPricePerKg1.getText().toString();
-            String stringFinalPrice1 = textViewPricePerKg1.getText().toString();
-            String stringFinalPrice2 = textViewPricePerKg2.getText().toString();
-            String stringFinalPrice3 = textViewPricePerKg3.getText().toString();
-            String stringFinalPrice4 = textViewPricePerKg4.getText().toString();
-            String stringFinalPrice5 = textViewPricePerKg4.getText().toString();
+            // ------------------- Finding minimum value -------------------
+            String stringFinalPrice1 = textViewPrice1.getText().toString();
+            String stringFinalPrice2 = textViewPrice2.getText().toString();
+            String stringFinalPrice3 = textViewPrice3.getText().toString();
+            String stringFinalPrice4 = textViewPrice4.getText().toString();
+            String stringFinalPrice5 = textViewPrice5.getText().toString();
 
-           /* if ((!stringFinalPrice1.trim().isEmpty() && !stringFinalPrice2.trim().isEmpty())
-                    && !stringFinalPrice3.trim().isEmpty()) {
-                float finalPrice1 = Float.parseFloat(stringFinalPrice1);
-                float finalPrice2 = Float.parseFloat(stringFinalPrice2);
-                float finalPrice3 = Float.parseFloat(stringFinalPrice3);
-                if ((finalPrice1 < finalPrice2) || (finalPrice1 < finalPrice3)) {
-                    textViewPricePerKg1.setBackgroundColor(Color.parseColor("#3fc4fe"));
-                    textViewPricePerKg2.setBackgroundColor(Color.TRANSPARENT);
-                    textViewPricePerKg3.setBackgroundColor(Color.TRANSPARENT);
-                } else if (finalPrice2 < finalPrice1 && finalPrice2 < finalPrice3) {
-                    textViewPricePerKg1.setBackgroundColor(Color.TRANSPARENT);
-                    textViewPricePerKg3.setBackgroundColor(Color.TRANSPARENT);
-                    textViewPricePerKg2.setBackgroundColor(Color.parseColor("#3fc4fe"));
-                } else if (finalPrice3 < finalPrice1 && finalPrice3 < finalPrice2) {
-                    textViewPricePerKg1.setBackgroundColor(Color.TRANSPARENT);
-                    textViewPricePerKg2.setBackgroundColor(Color.TRANSPARENT);
-                    textViewPricePerKg3.setBackgroundColor(Color.parseColor("#3fc4fe"));
-                    textViewVersion.setText("awdwadwadwa");
-                } else {
-                    textViewPricePerKg1.setBackgroundColor(Color.TRANSPARENT);
-                    textViewPricePerKg2.setBackgroundColor(Color.TRANSPARENT);
-                    textViewPricePerKg3.setBackgroundColor(Color.TRANSPARENT);
-                }*/
+            HashMap<String, Float> prices = new HashMap<>();
 
-/*
-            if (!stringFinalPrice1.trim().isEmpty() && !stringFinalPrice2.trim().isEmpty()
-                    && !stringFinalPrice3.trim().isEmpty()) {
-
-
-
-
-                float finalPrice1 = Float.parseFloat(stringFinalPrice1);
-                float finalPrice2 = Float.parseFloat(stringFinalPrice2);
-                float finalPrice3 = Float.parseFloat(stringFinalPrice3);
-                float smallestPrice;
-                if (smallest(finalPrice1, finalPrice2, finalPrice3)){
-
-                }
-
-                textViewPricePerKg1.setBackgroundColor(Color.parseColor("#3fc4fe"));*/
-
-
-               /* if (finalPrice1 < finalPrice2){
-                    textViewPricePerKg1.setBackgroundColor(Color.parseColor("#3fc4fe"));
-                    textViewPricePerKg2.setBackgroundColor(Color.TRANSPARENT);
-                    textViewPricePerKg3.setBackgroundColor(Color.TRANSPARENT);
-                } else if (finalPrice1 > finalPrice2){
-                    textViewPricePerKg1.setBackgroundColor(Color.TRANSPARENT);
-                    textViewPricePerKg3.setBackgroundColor(Color.TRANSPARENT);
-                    textViewPricePerKg2.setBackgroundColor(Color.parseColor("#3fc4fe"));
+            String[] arrayStringPrices = {stringFinalPrice1, stringFinalPrice2, stringFinalPrice3, stringFinalPrice4, stringFinalPrice5};
+            for (int i = 0; i < arrayStringPrices.length; i++) {
+                if (!arrayStringPrices[i].trim().isEmpty() && arrayStringPrices[i] != null) {
+                    DecimalFormat df = new DecimalFormat("#.#");
+                    DecimalFormatSymbols dfs = DecimalFormatSymbols.getInstance();
+                    dfs.setDecimalSeparator(',');
+                    df.setDecimalFormatSymbols(dfs);
+                    try {
+                        Log.i("debug", "arrayStringPrices[i]: " + df.parse(arrayStringPrices[i]));
+                        //System.out.println(df.parse(arrayStringPrices[i]));
+                        prices.put("textViewPricePerKg" + (i + 1), Float.parseFloat(String.valueOf(df.parse(arrayStringPrices[i]))));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
-            if (!stringFinalPrice1.trim().isEmpty() && stringFinalPrice2.trim().isEmpty()
-                    && !stringFinalPrice3.trim().isEmpty()) {
-                float finalPrice1 = Float.parseFloat(stringFinalPrice1);
-                float finalPrice3 = Float.parseFloat(stringFinalPrice3);
-                if (finalPrice1 < finalPrice3)  {
-                    textViewPricePerKg1.setBackgroundColor(Color.parseColor("#3fc4fe"));
-                    textViewPricePerKg2.setBackgroundColor(Color.TRANSPARENT);
-                    textViewPricePerKg3.setBackgroundColor(Color.TRANSPARENT);
-                } else {
-                    textViewPricePerKg1.setBackgroundColor(Color.TRANSPARENT);
-                    textViewPricePerKg2.setBackgroundColor(Color.TRANSPARENT);
-                    textViewPricePerKg3.setBackgroundColor(Color.parseColor("#3fc4fe"));
+
+            Log.i("debug", "HashMap: " + prices.keySet() + " = " + prices.values());
+
+            // TreeMap to store values of HashMap
+            TreeMap<Object, Float> sorted = new TreeMap<>();
+
+            // Copy all data from hashMap into TreeMap
+            //sorted.putAll(prices);
+            prices.entrySet();
+
+            if (!sorted.isEmpty()) {
+                Log.i("debug", "Minimum: " + sorted.firstEntry().getKey() + " = " + sorted.firstEntry().getValue());
+            }
+
+            // Display the TreeMap which is naturally sorted
+            for (Map.Entry<Object, Float> entry : sorted.entrySet()) {
+                Log.i("debug", "Sorted Hashmap " + entry.getKey() + " = " + entry.getValue());
+            }
+
+            if (!prices.values().isEmpty()) {
+                Float minValueInMap = (Collections.min(prices.values()));
+                for (Map.Entry<String, Float> entry : prices.entrySet()) {  // Iterate through HashMap
+                    if (entry.getValue() == minValueInMap) {
+                        System.out.println("Minimum of Map.Entry: \n" + entry.getKey() + " = " + entry.getValue());     // Print the key with min value
+                        int ViewMin = getResources().getIdentifier(entry.getKey(), "id", getPackageName());
+                        System.out.println("ViewMin Identifier: " + ViewMin);
+                        textViewPrice1.setBackgroundColor(Color.TRANSPARENT);
+                        textViewPrice2.setBackgroundColor(Color.TRANSPARENT);
+                        textViewPrice3.setBackgroundColor(Color.TRANSPARENT);
+                        textViewPrice4.setBackgroundColor(Color.TRANSPARENT);
+                        textViewPrice5.setBackgroundColor(Color.TRANSPARENT);
+                        TextView TextViewPriceMin = findViewById(ViewMin);
+                        TextViewPriceMin.setBackgroundColor(Color.parseColor("#3fc4fe"));
+                    }
                 }
             }
-            if (stringFinalPrice1.trim().isEmpty() && !stringFinalPrice2.trim().isEmpty()
-                    && !stringFinalPrice3.trim().isEmpty()) {
-                float finalPrice2 = Float.parseFloat(stringFinalPrice2);
-                float finalPrice3 = Float.parseFloat(stringFinalPrice3);
-                if (finalPrice2 < finalPrice3)  {
-                    textViewPricePerKg2.setBackgroundColor(Color.parseColor("#3fc4fe"));
-                    textViewPricePerKg2.setBackgroundColor(Color.TRANSPARENT);
-                    textViewPricePerKg3.setBackgroundColor(Color.TRANSPARENT);
-                } else {
-                    textViewPricePerKg1.setBackgroundColor(Color.TRANSPARENT);
-                    textViewPricePerKg2.setBackgroundColor(Color.TRANSPARENT);
-                    textViewPricePerKg3.setBackgroundColor(Color.parseColor("#3fc4fe"));
-                }*/
+
+            if (!prices.values().isEmpty()) {
+                prices.values().stream().min(Float::compare).get();
+                Log.i("debug", "Min value hashmap: " + prices.keySet() + " = " + prices.values().stream().min(Float::compare).get());
             }
-
-
-           /* float finalPrice2 = Float.parseFloat((textViewPricePerKg2.getText().toString()));
-            float finalPrice3 = Float.parseFloat((textViewPricePerKg3.getText().toString()));*/
-            //textViewVersion.setText(finalPrice1);
-
-          /*  if (finalPrice1 < finalPrice2) {
-
-            }
-*/
 
 
         }
-
     }
-
-    /*    public static float smallest(float a, float b, float c)
-        {
-            return Math.min(Math.min(a, b), c);
-        }*/
+}
 
 
 
