@@ -32,5 +32,5 @@
     <string name="editTextWeightPlaceholder5">Weight, gram</string>
     <string name="textViewPricePerKg5">Price per kg</string>
 
-    <string name="textViewVersion">Version: 1.4.22.061201</string>
+    <string name="textViewVersion">Version: 1.5.22.061204</string>
 </resources>
