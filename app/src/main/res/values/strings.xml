@@ -3,34 +3,34 @@
 
     <string name="clearFieldsHint">Clear fields</string>
     <string name="changeThemeHint">Change theme</string>
-    <string name="Hide">Hide</string>
+    <string name="Hide">Add more/Hide</string>
 
     <string name="editTextProduct1">The first product or shop</string>
-    <string name="editTextPricePlaceholder1">Price, RUB</string>
+    <string name="editTextPricePlaceholder1">Price</string>
     <string name="editTextWeightPlaceholder1">Weight, gram</string>
     <string name="editTextDefaultPrice1">50</string>
     <string name="editTextDefaultWeight1">350</string>
     <string name="textViewPricePerKg1">Price per kg</string>
 
     <string name="editTextProduct2">The second product or shop</string>
-    <string name="editTextPricePlaceholder2">Price, RUB</string>
+    <string name="editTextPricePlaceholder2">Price</string>
     <string name="editTextWeightPlaceholder2">Weight, gram</string>
     <string name="textViewPricePerKg2">Price per kg</string>
 
     <string name="editTextProduct3">The third product or shop</string>
-    <string name="editTextPricePlaceholder3">Price, RUB</string>
+    <string name="editTextPricePlaceholder3">Price</string>
     <string name="editTextWeightPlaceholder3">Weight, gram</string>
     <string name="textViewPricePerKg3">Price per kg</string>
 
     <string name="editTextProduct4">The fourth product or shop</string>
-    <string name="editTextPricePlaceholder4">Price, RUB</string>
+    <string name="editTextPricePlaceholder4">Price</string>
     <string name="editTextWeightPlaceholder4">Weight, gram</string>
     <string name="textViewPricePerKg4">Price per kg</string>
 
     <string name="editTextProduct5">The fifth product or shop</string>
-    <string name="editTextPricePlaceholder5">Price, RUB</string>
+    <string name="editTextPricePlaceholder5">Price</string>
     <string name="editTextWeightPlaceholder5">Weight, gram</string>
     <string name="textViewPricePerKg5">Price per kg</string>
 
-    <string name="textViewVersion">Version: 1.4.21.062104</string>
+    <string name="textViewVersion">Version: 1.4.22.061201</string>
 </resources>

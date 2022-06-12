@@ -6,11 +6,11 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.AppCompatDelegate;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.cardview.widget.CardView;
+import androidx.appcompat.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -29,6 +29,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 //TODO localisation
+//TODO implement dynamic adding and removing items
 
 public class MainActivity extends AppCompatActivity {
 
@@ -257,7 +258,7 @@ public class MainActivity extends AppCompatActivity {
                     || (editable == editTextWeight1.getEditableText())) {
                 if ((editTextPrice1.getText().toString().equals("."))
                         || editTextWeight1.getText().toString().equals(".")
-                        || editTextWeight1.getText().toString().equals("0")) {
+                        || editTextWeight1.getText().toString().matches("^0([-.]?[0]*)$")) {
                     textViewPrice1.setText("0.00");
                 } else if ((editTextPrice1.getText().toString().isEmpty()
                         || (editTextWeight1.getText().toString().isEmpty()))) {
@@ -273,7 +274,7 @@ public class MainActivity extends AppCompatActivity {
                     || (editable == editTextWeight2.getEditableText())) {
                 if ((editTextPrice2.getText().toString().equals("."))
                         || editTextWeight2.getText().toString().equals(".")
-                        || editTextWeight2.getText().toString().equals("0")) {
+                        || editTextWeight2.getText().toString().matches("^0([-.]?[0]*)$")) {
                     textViewPrice2.setText("0.00");
                 } else if ((editTextPrice2.getText().toString().isEmpty()
                         || (editTextWeight2.getText().toString().isEmpty()))) {
@@ -290,7 +291,7 @@ public class MainActivity extends AppCompatActivity {
                     || (editable == editTextWeight3.getEditableText())) {
                 if ((editTextPrice3.getText().toString().equals("."))
                         || editTextWeight3.getText().toString().equals(".")
-                        || editTextWeight3.getText().toString().equals("0")) {
+                        || editTextWeight3.getText().toString().matches("^0([-.]?[0]*)$")) {
                     textViewPrice3.setText("0.00");
                 } else if ((editTextPrice3.getText().toString().isEmpty()
                         || (editTextWeight3.getText().toString().isEmpty()))) {
@@ -307,7 +308,7 @@ public class MainActivity extends AppCompatActivity {
                     || (editable == editTextWeight4.getEditableText())) {
                 if ((editTextPrice4.getText().toString().equals("."))
                         || editTextWeight4.getText().toString().equals(".")
-                        || editTextWeight4.getText().toString().equals("0")) {
+                        || editTextWeight4.getText().toString().matches("^0([-.]?[0]*)$")) {
                     textViewPrice4.setText("0.00");
                 } else if ((editTextPrice4.getText().toString().isEmpty()
                         || (editTextWeight4.getText().toString().isEmpty()))) {
@@ -324,7 +325,7 @@ public class MainActivity extends AppCompatActivity {
                     || (editable == editTextWeight5.getEditableText())) {
                 if ((editTextPrice5.getText().toString().equals("."))
                         || editTextWeight5.getText().toString().equals(".")
-                        || editTextWeight5.getText().toString().equals("0")) {
+                        || editTextWeight5.getText().toString().matches("^0([-.]?[0]*)$")) {
                     textViewPrice5.setText("0.00");
                 } else if ((editTextPrice5.getText().toString().isEmpty()
                         || (editTextWeight5.getText().toString().isEmpty()))) {
@@ -368,7 +369,6 @@ public class MainActivity extends AppCompatActivity {
             TreeMap<Object, Float> sorted = new TreeMap<>();
 
             // Copy all data from hashMap into TreeMap
-            //sorted.putAll(prices);
             prices.entrySet();
 
             if (!sorted.isEmpty()) {

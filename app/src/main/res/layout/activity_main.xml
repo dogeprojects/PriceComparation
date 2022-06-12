@@ -8,7 +8,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/LinearLayout">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         style="@style/Toolbar"
         android:minHeight="?android:attr/actionBarSize"/>
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content">
 
             <!-- ====================== The first product ====================== -->
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/card_view1"
                 style="@style/CardViewStyle"
                 android:layout_marginTop="5dp">
@@ -62,10 +62,10 @@
                         android:id="@+id/textViewPricePerKg1"
                         android:hint="@string/textViewPricePerKg1" />
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
             <!-- ====================== The second product ====================== -->
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/card_view2"
                 style="@style/CardViewStyle">
                 <LinearLayout
@@ -101,10 +101,10 @@
                         android:id="@+id/textViewPricePerKg2"
                         android:hint="@string/textViewPricePerKg1"/>
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
             <!-- ====================== The third product ====================== -->
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/card_view3"
                 style="@style/CardViewStyle">
                 <LinearLayout
@@ -140,10 +140,10 @@
                         android:id="@+id/textViewPricePerKg3"
                         android:hint="@string/textViewPricePerKg3"/>
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
             <!-- ====================== The fourth product ====================== -->
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/card_view4"
                 style="@style/CardViewStyle">
                 <LinearLayout
@@ -179,10 +179,10 @@
                         android:id="@+id/textViewPricePerKg4"
                         android:hint="@string/textViewPricePerKg4"/>
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
             <!-- ====================== The fifth product ====================== -->
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/card_view5"
                 style="@style/CardViewStyle">
                 <LinearLayout
@@ -218,7 +218,7 @@
                         android:id="@+id/textViewPricePerKg5"
                         android:hint="@string/textViewPricePerKg5"/>
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
             <!-- ====================== The version TextView ====================== -->
             <TextView

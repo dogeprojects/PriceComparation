@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/PricePerKilo.iml" filepath="$PROJECT_DIR$/PricePerKilo.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PricePerKilo.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PricePerKilo.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PricePerKilo.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PricePerKilo.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PricePerKilo.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PricePerKilo.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PricePerKilo.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PricePerKilo.app.unitTest.iml" />
     </modules>
   </component>
 </project>
