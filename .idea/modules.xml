@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PricePerKilo.iml" filepath="$PROJECT_DIR$/PricePerKilo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PricePerKilo.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PricePerKilo.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PricePerKilo.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PricePerKilo.app.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PricePerKilo.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PricePerKilo.app.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PricePerKilo.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PricePerKilo.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PriceComparation.iml" filepath="$PROJECT_DIR$/.idea/modules/PriceComparation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PriceComparation.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PriceComparation.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PriceComparation.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PriceComparation.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PriceComparation.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PriceComparation.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PriceComparation.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PriceComparation.app.unitTest.iml" />
     </modules>
   </component>
 </project>

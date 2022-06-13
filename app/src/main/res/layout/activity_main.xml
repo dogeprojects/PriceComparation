@@ -11,7 +11,9 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         style="@style/Toolbar"
+        android:clickable="true"
         android:minHeight="?android:attr/actionBarSize"/>
+
 
     <ScrollView
         android:layout_height="match_parent"

@@ -1,4 +1,4 @@
-package com.priceperkilo;
+package com.pricecomparation;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -6,11 +6,6 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.cardview.widget.CardView;
-import androidx.appcompat.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -20,6 +15,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.ParseException;
@@ -27,6 +23,12 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 
 //TODO localisation
 //TODO implement dynamic adding and removing items
@@ -102,7 +104,11 @@ public class MainActivity extends AppCompatActivity {
         cardViewC4.setVisibility(View.INVISIBLE);
         cardViewC5.setVisibility(View.INVISIBLE);
 
-
+        //TODO Show change log by click on toolbar
+        findViewById(R.id.toolbar).setOnClickListener(v -> {
+            //Do something
+            Toast.makeText(MainActivity.this, "Thanks for using!", Toast.LENGTH_SHORT).show();
+        });
     }
 
     @Override

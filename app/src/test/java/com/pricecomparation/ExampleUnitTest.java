@@ -1,4 +1,4 @@
-package com.priceperkilo;
+package com.pricecomparation;
 
 import org.junit.Test;
 

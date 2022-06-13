@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.priceperkilo">
+    package="com.pricecomparation">
 
     <application
         android:allowBackup="true"
@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/LightTheme"
         tools:ignore="AllowBackup">
-        <activity android:name="com.priceperkilo.MainActivity"
+        <activity android:name="com.pricecomparation.MainActivity"
             android:screenOrientation="unspecified">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
