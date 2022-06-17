@@ -123,6 +123,16 @@ public class MainActivity extends AppCompatActivity {
         CardView cardViewC4 = findViewById(R.id.card_view4);
         CardView cardViewC5 = findViewById(R.id.card_view5);
 
+        TextView editTextProduct4 = findViewById(R.id.editTextProduct4);
+        EditText editTextPrice4 = findViewById(R.id.editTextPrice4);
+        EditText editTextWeight4 = findViewById(R.id.editTextWeight4);
+        TextView textViewPricePerKg4 = findViewById(R.id.textViewPricePerKg4);
+
+        TextView editTextProduct5 = findViewById(R.id.editTextProduct5);
+        EditText editTextPrice5 = findViewById(R.id.editTextPrice5);
+        EditText editTextWeight5 = findViewById(R.id.editTextWeight5);
+        TextView textViewPricePerKg5 = findViewById(R.id.textViewPricePerKg5);
+
         //Toggle
         if (cardViewC4.getVisibility() == View.INVISIBLE) {
             cardViewC4.setVisibility(View.VISIBLE);
@@ -132,6 +142,17 @@ public class MainActivity extends AppCompatActivity {
             cardViewC4.setVisibility(View.INVISIBLE);
             cardViewC5.setVisibility(View.INVISIBLE);
             Toast.makeText(this, "Fields have been hidden", Toast.LENGTH_SHORT).show();
+
+            //clear fields after hiding
+            editTextProduct4.setText("");
+            editTextPrice4.setText("");
+            editTextWeight4.setText("");
+            textViewPricePerKg4.setText("");
+
+            editTextProduct5.setText("");
+            editTextPrice5.setText("");
+            editTextWeight5.setText("");
+            textViewPricePerKg5.setText("");
         }
     }
 

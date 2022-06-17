@@ -14,7 +14,6 @@
         android:clickable="true"
         android:minHeight="?android:attr/actionBarSize"/>
 
-
     <ScrollView
         android:layout_height="match_parent"
         android:layout_width="wrap_content"
@@ -48,6 +47,7 @@
                         android:id="@+id/editTextPrice1"
                         style="@style/EditTextStyle"
                         android:gravity="center"
+                        android:layout_marginLeft="5dp"
                         android:hint="@string/editTextPricePlaceholder1"/>
                     <!-- android:text="@string/_editTextDefaultPrice1" -->
                     <EditText
@@ -89,6 +89,7 @@
                         android:id="@+id/editTextPrice2"
                         style="@style/EditTextStyle"
                         android:gravity="center"
+                        android:layout_marginLeft="5dp"
                         android:hint="@string/editTextPricePlaceholder2"/>
                     <EditText
                         android:id="@+id/editTextWeight2"
@@ -128,6 +129,7 @@
                         android:id="@+id/editTextPrice3"
                         style="@style/EditTextStyle"
                         android:gravity="center"
+                        android:layout_marginLeft="5dp"
                         android:hint="@string/editTextPricePlaceholder3"/>
                     <EditText
                         android:id="@+id/editTextWeight3"
@@ -167,6 +169,7 @@
                         android:id="@+id/editTextPrice4"
                         style="@style/EditTextStyle"
                         android:gravity="center"
+                        android:layout_marginLeft="5dp"
                         android:hint="@string/editTextPricePlaceholder4"/>
                     <EditText
                         android:id="@+id/editTextWeight4"
@@ -206,6 +209,7 @@
                         android:id="@+id/editTextPrice5"
                         style="@style/EditTextStyle"
                         android:gravity="center"
+                        android:layout_marginLeft="5dp"
                         android:hint="@string/editTextPricePlaceholder5"/>
                     <EditText
                         android:id="@+id/editTextWeight5"
