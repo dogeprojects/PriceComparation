@@ -35,20 +35,11 @@ import androidx.cardview.widget.CardView;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText mEditTextPrice1;
-    TextView mEditTextWeight1;
-
-    EditText mEditTextPrice2;
-    TextView mEditTextWeight2;
-
-    EditText mEditTextPrice3;
-    TextView mEditTextWeight3;
-
-    EditText mEditTextPrice4;
-    TextView mEditTextWeight4;
-
-    EditText mEditTextPrice5;
-    TextView mEditTextWeight5;
+    EditText mEditTextPrice1, mEditTextPrice2, mEditTextPrice3, mEditTextPrice4, mEditTextPrice5;
+    TextView mEditTextWeight1, mEditTextWeight2, mEditTextWeight3, mEditTextWeight4, mEditTextWeight5;
+    TextView mEditTextProduct1, mEditTextProduct2, mEditTextProduct3, mEditTextProduct4, mEditTextProduct5;
+    TextView mTextViewPricePerKg1, mTextViewPricePerKg2, mTextViewPricePerKg3, mTextViewPricePerKg4, mTextViewPricePerKg5;
+    CardView cardViewC4, cardViewC5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,14 +65,31 @@ public class MainActivity extends AppCompatActivity {
 
         mEditTextPrice1 = findViewById(R.id.editTextPrice1);
         mEditTextWeight1 = findViewById(R.id.editTextWeight1);
+        mEditTextProduct1 = findViewById(R.id.editTextProduct1);
+        mTextViewPricePerKg1 = findViewById(R.id.textViewPricePerKg1);
+
         mEditTextPrice2 = findViewById(R.id.editTextPrice2);
         mEditTextWeight2 = findViewById(R.id.editTextWeight2);
+        mEditTextProduct2 = findViewById(R.id.editTextProduct2);
+        mTextViewPricePerKg2 = findViewById(R.id.textViewPricePerKg2);
+
         mEditTextPrice3 = findViewById(R.id.editTextPrice3);
         mEditTextWeight3 = findViewById(R.id.editTextWeight3);
+        mEditTextProduct3 = findViewById(R.id.editTextProduct3);
+        mTextViewPricePerKg3 = findViewById(R.id.textViewPricePerKg3);
+
         mEditTextPrice4 = findViewById(R.id.editTextPrice4);
         mEditTextWeight4 = findViewById(R.id.editTextWeight4);
+        mEditTextProduct4 = findViewById(R.id.editTextProduct4);
+        mTextViewPricePerKg4 = findViewById(R.id.textViewPricePerKg4);
+
         mEditTextPrice5 = findViewById(R.id.editTextPrice5);
         mEditTextWeight5 = findViewById(R.id.editTextWeight5);
+        mEditTextProduct5 = findViewById(R.id.editTextProduct5);
+        mTextViewPricePerKg5 = findViewById(R.id.textViewPricePerKg5);
+
+        cardViewC4 = findViewById(R.id.card_view4);
+        cardViewC5 = findViewById(R.id.card_view5);
 
         mEditTextPrice1.addTextChangedListener(new TextChangeWatcher());
         mEditTextWeight1.addTextChangedListener(new TextChangeWatcher());
@@ -97,9 +105,6 @@ public class MainActivity extends AppCompatActivity {
 
         mEditTextPrice5.addTextChangedListener(new TextChangeWatcher());
         mEditTextWeight5.addTextChangedListener(new TextChangeWatcher());
-
-        CardView cardViewC4 = findViewById(R.id.card_view4);
-        CardView cardViewC5 = findViewById(R.id.card_view5);
 
         cardViewC4.setVisibility(View.INVISIBLE);
         cardViewC5.setVisibility(View.INVISIBLE);
@@ -120,19 +125,6 @@ public class MainActivity extends AppCompatActivity {
     // Hide textEdit button handle
     public void onButtonHideClick(MenuItem item) {
 
-        CardView cardViewC4 = findViewById(R.id.card_view4);
-        CardView cardViewC5 = findViewById(R.id.card_view5);
-
-        TextView editTextProduct4 = findViewById(R.id.editTextProduct4);
-        EditText editTextPrice4 = findViewById(R.id.editTextPrice4);
-        EditText editTextWeight4 = findViewById(R.id.editTextWeight4);
-        TextView textViewPricePerKg4 = findViewById(R.id.textViewPricePerKg4);
-
-        TextView editTextProduct5 = findViewById(R.id.editTextProduct5);
-        EditText editTextPrice5 = findViewById(R.id.editTextPrice5);
-        EditText editTextWeight5 = findViewById(R.id.editTextWeight5);
-        TextView textViewPricePerKg5 = findViewById(R.id.textViewPricePerKg5);
-
         //Toggle
         if (cardViewC4.getVisibility() == View.INVISIBLE) {
             cardViewC4.setVisibility(View.VISIBLE);
@@ -144,21 +136,22 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Fields have been hidden", Toast.LENGTH_SHORT).show();
 
             //clear fields after hiding
-            editTextProduct4.setText("");
-            editTextPrice4.setText("");
-            editTextWeight4.setText("");
-            textViewPricePerKg4.setText("");
+            mEditTextProduct4.setText("");
+            mEditTextPrice4.setText("");
+            mEditTextWeight4.setText("");
+            mTextViewPricePerKg4.setText("");
 
-            editTextProduct5.setText("");
-            editTextPrice5.setText("");
-            editTextWeight5.setText("");
-            textViewPricePerKg5.setText("");
+            mEditTextProduct5.setText("");
+            mEditTextPrice5.setText("");
+            mEditTextWeight5.setText("");
+            mTextViewPricePerKg5.setText("");
         }
     }
 
     // Change theme button handle
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         if (item.getItemId() == R.id.change_theme) {
             // Save application state
             SharedPreferences mPrefs = getSharedPreferences("THEME", 0);
@@ -179,61 +172,36 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (item.getItemId() == R.id.clear_button) {
-            final TextView editTextProduct1 = findViewById(R.id.editTextProduct1);
-            final EditText editTextPrice1 = findViewById(R.id.editTextPrice1);
-            final TextView editTextWeight1 = findViewById(R.id.editTextWeight1);
-            final TextView textViewPricePerKg1 = findViewById(R.id.textViewPricePerKg1);
+            mEditTextProduct1.setText("");
+            mEditTextPrice1.setText("");
+            mEditTextWeight1.setText("");
+            mTextViewPricePerKg1.setText("");
 
-            final TextView editTextProduct2 = findViewById(R.id.editTextProduct2);
-            final EditText editTextPrice2 = findViewById(R.id.editTextPrice2);
-            final EditText editTextWeight2 = findViewById(R.id.editTextWeight2);
-            final TextView textViewPricePerKg2 = findViewById(R.id.textViewPricePerKg2);
+            mEditTextProduct2.setText("");
+            mEditTextPrice2.setText("");
+            mEditTextWeight2.setText("");
+            mTextViewPricePerKg2.setText("");
 
-            final TextView editTextProduct3 = findViewById(R.id.editTextProduct3);
-            final EditText editTextPrice3 = findViewById(R.id.editTextPrice3);
-            final EditText editTextWeight3 = findViewById(R.id.editTextWeight3);
-            final TextView textViewPricePerKg3 = findViewById(R.id.textViewPricePerKg3);
+            mEditTextProduct3.setText("");
+            mEditTextPrice3.setText("");
+            mEditTextWeight3.setText("");
+            mTextViewPricePerKg3.setText("");
 
-            final TextView editTextProduct4 = findViewById(R.id.editTextProduct4);
-            final EditText editTextPrice4 = findViewById(R.id.editTextPrice4);
-            final EditText editTextWeight4 = findViewById(R.id.editTextWeight4);
-            final TextView textViewPricePerKg4 = findViewById(R.id.textViewPricePerKg4);
+            mEditTextProduct4.setText("");
+            mEditTextPrice4.setText("");
+            mEditTextWeight4.setText("");
+            mTextViewPricePerKg4.setText("");
 
-            final TextView editTextProduct5 = findViewById(R.id.editTextProduct5);
-            final EditText editTextPrice5 = findViewById(R.id.editTextPrice5);
-            final EditText editTextWeight5 = findViewById(R.id.editTextWeight5);
-            final TextView textViewPricePerKg5 = findViewById(R.id.textViewPricePerKg5);
+            mEditTextProduct5.setText("");
+            mEditTextPrice5.setText("");
+            mEditTextWeight5.setText("");
+            mTextViewPricePerKg5.setText("");
 
-            editTextProduct1.setText("");
-            editTextPrice1.setText("");
-            editTextWeight1.setText("");
-            textViewPricePerKg1.setText("");
-
-            editTextProduct2.setText("");
-            editTextPrice2.setText("");
-            editTextWeight2.setText("");
-            textViewPricePerKg2.setText("");
-
-            editTextProduct3.setText("");
-            editTextPrice3.setText("");
-            editTextWeight3.setText("");
-            textViewPricePerKg3.setText("");
-
-            editTextProduct4.setText("");
-            editTextPrice4.setText("");
-            editTextWeight4.setText("");
-            textViewPricePerKg4.setText("");
-
-            editTextProduct5.setText("");
-            editTextPrice5.setText("");
-            editTextWeight5.setText("");
-            textViewPricePerKg5.setText("");
-
-            textViewPricePerKg1.setBackgroundColor(Color.TRANSPARENT);
-            textViewPricePerKg2.setBackgroundColor(Color.TRANSPARENT);
-            textViewPricePerKg3.setBackgroundColor(Color.TRANSPARENT);
-            textViewPricePerKg4.setBackgroundColor(Color.TRANSPARENT);
-            textViewPricePerKg5.setBackgroundColor(Color.TRANSPARENT);
+            mTextViewPricePerKg1.setBackgroundColor(Color.TRANSPARENT);
+            mTextViewPricePerKg2.setBackgroundColor(Color.TRANSPARENT);
+            mTextViewPricePerKg3.setBackgroundColor(Color.TRANSPARENT);
+            mTextViewPricePerKg4.setBackgroundColor(Color.TRANSPARENT);
+            mTextViewPricePerKg5.setBackgroundColor(Color.TRANSPARENT);
 
             Toast toast = Toast.makeText(getApplicationContext(),
                     "Fields cleared successfully",
@@ -245,25 +213,6 @@ public class MainActivity extends AppCompatActivity {
 
     // ======================= Implementation of TextWatcher =======================
     class TextChangeWatcher implements TextWatcher {
-        final EditText editTextPrice1 = findViewById(R.id.editTextPrice1);
-        final TextView editTextWeight1 = findViewById(R.id.editTextWeight1);
-        final TextView textViewPrice1 = findViewById(R.id.textViewPricePerKg1);
-
-        final EditText editTextPrice2 = findViewById(R.id.editTextPrice2);
-        final TextView editTextWeight2 = findViewById(R.id.editTextWeight2);
-        final TextView textViewPrice2 = findViewById(R.id.textViewPricePerKg2);
-
-        final EditText editTextPrice3 = findViewById(R.id.editTextPrice3);
-        final TextView editTextWeight3 = findViewById(R.id.editTextWeight3);
-        final TextView textViewPrice3 = findViewById(R.id.textViewPricePerKg3);
-
-        final EditText editTextPrice4 = findViewById(R.id.editTextPrice4);
-        final TextView editTextWeight4 = findViewById(R.id.editTextWeight4);
-        final TextView textViewPrice4 = findViewById(R.id.textViewPricePerKg4);
-
-        final EditText editTextPrice5 = findViewById(R.id.editTextPrice5);
-        final TextView editTextWeight5 = findViewById(R.id.editTextWeight5);
-        final TextView textViewPrice5 = findViewById(R.id.textViewPricePerKg5);
 
         TextChangeWatcher() {
         }
@@ -281,95 +230,95 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void afterTextChanged(Editable editable) {
             // ------------------- The first product --------------------
-            if ((editable == editTextPrice1.getEditableText())
-                    || (editable == editTextWeight1.getEditableText())) {
-                if ((editTextPrice1.getText().toString().equals("."))
-                        || editTextWeight1.getText().toString().equals(".")
-                        || editTextWeight1.getText().toString().matches("^0([-.]?[0]*)$")) {
-                    textViewPrice1.setText("0.00");
-                } else if ((editTextPrice1.getText().toString().isEmpty()
-                        || (editTextWeight1.getText().toString().isEmpty()))) {
-                    textViewPrice1.setText("");
+            if ((editable == mEditTextPrice1.getEditableText())
+                    || (editable == mEditTextWeight1.getEditableText())) {
+                if ((mEditTextPrice1.getText().toString().equals("."))
+                        || mEditTextWeight1.getText().toString().equals(".")
+                        || mEditTextWeight1.getText().toString().matches("^0([-.]?[0]*)$")) {
+                    mTextViewPricePerKg1.setText("0.00");
+                } else if ((mEditTextPrice1.getText().toString().isEmpty()
+                        || (mEditTextWeight1.getText().toString().isEmpty()))) {
+                    mTextViewPricePerKg1.setText("");
                 } else {
-                    float mPrice1 = Float.parseFloat(editTextPrice1.getText().toString());
-                    float mWeight1 = Float.parseFloat(editTextWeight1.getText().toString());
-                    textViewPrice1.setText(String.format("%.2f", mPrice1 * 1000 / mWeight1));
+                    float mPrice1 = Float.parseFloat(mEditTextPrice1.getText().toString());
+                    float mWeight1 = Float.parseFloat(mEditTextWeight1.getText().toString());
+                    mTextViewPricePerKg1.setText(String.format("%.2f", mPrice1 * 1000 / mWeight1));
                 }
             }
             // ------------------- The second product -------------------
-            if ((editable == editTextPrice2.getEditableText())
-                    || (editable == editTextWeight2.getEditableText())) {
-                if ((editTextPrice2.getText().toString().equals("."))
-                        || editTextWeight2.getText().toString().equals(".")
-                        || editTextWeight2.getText().toString().matches("^0([-.]?[0]*)$")) {
-                    textViewPrice2.setText("0.00");
-                } else if ((editTextPrice2.getText().toString().isEmpty()
-                        || (editTextWeight2.getText().toString().isEmpty()))) {
-                    textViewPrice2.setText("");
+            if ((editable == mEditTextPrice2.getEditableText())
+                    || (editable == mEditTextWeight2.getEditableText())) {
+                if ((mEditTextPrice2.getText().toString().equals("."))
+                        || mEditTextWeight2.getText().toString().equals(".")
+                        || mEditTextWeight2.getText().toString().matches("^0([-.]?[0]*)$")) {
+                    mEditTextPrice2.setText("0.00");
+                } else if ((mEditTextPrice2.getText().toString().isEmpty()
+                        || (mEditTextWeight2.getText().toString().isEmpty()))) {
+                    mTextViewPricePerKg2.setText("");
                 } else {
-                    float mPrice2 = Float.parseFloat(editTextPrice2.getText().toString());
-                    float mWeight2 = Float.parseFloat(editTextWeight2.getText().toString());
-                    textViewPrice2.setText(String.format("%.2f", mPrice2 * 1000 / mWeight2));
+                    float mPrice2 = Float.parseFloat(mEditTextPrice2.getText().toString());
+                    float mWeight2 = Float.parseFloat(mEditTextWeight2.getText().toString());
+                    mTextViewPricePerKg2.setText(String.format("%.2f", mPrice2 * 1000 / mWeight2));
                 }
 
             }
             // ------------------- The third product -------------------
-            if ((editable == editTextPrice3.getEditableText())
-                    || (editable == editTextWeight3.getEditableText())) {
-                if ((editTextPrice3.getText().toString().equals("."))
-                        || editTextWeight3.getText().toString().equals(".")
-                        || editTextWeight3.getText().toString().matches("^0([-.]?[0]*)$")) {
-                    textViewPrice3.setText("0.00");
-                } else if ((editTextPrice3.getText().toString().isEmpty()
-                        || (editTextWeight3.getText().toString().isEmpty()))) {
-                    textViewPrice3.setText("");
+            if ((editable == mEditTextPrice3.getEditableText())
+                    || (editable == mEditTextWeight3.getEditableText())) {
+                if ((mEditTextPrice3.getText().toString().equals("."))
+                        || mEditTextWeight3.getText().toString().equals(".")
+                        || mEditTextWeight3.getText().toString().matches("^0([-.]?[0]*)$")) {
+                    mTextViewPricePerKg3.setText("0.00");
+                } else if ((mEditTextPrice3.getText().toString().isEmpty()
+                        || (mEditTextWeight3.getText().toString().isEmpty()))) {
+                    mTextViewPricePerKg3.setText("");
                 } else {
-                    float mPrice3 = Float.parseFloat(editTextPrice3.getText().toString());
-                    float mWeight3 = Float.parseFloat(editTextWeight3.getText().toString());
-                    textViewPrice3.setText(String.format("%.2f", mPrice3 * 1000 / mWeight3));
+                    float mPrice3 = Float.parseFloat(mEditTextPrice3.getText().toString());
+                    float mWeight3 = Float.parseFloat(mEditTextWeight3.getText().toString());
+                    mTextViewPricePerKg3.setText(String.format("%.2f", mPrice3 * 1000 / mWeight3));
                 }
             }
 
             // ------------------- The fourth product -------------------
-            if ((editable == editTextPrice4.getEditableText())
-                    || (editable == editTextWeight4.getEditableText())) {
-                if ((editTextPrice4.getText().toString().equals("."))
-                        || editTextWeight4.getText().toString().equals(".")
-                        || editTextWeight4.getText().toString().matches("^0([-.]?[0]*)$")) {
-                    textViewPrice4.setText("0.00");
-                } else if ((editTextPrice4.getText().toString().isEmpty()
-                        || (editTextWeight4.getText().toString().isEmpty()))) {
-                    textViewPrice4.setText("");
+            if ((editable == mEditTextPrice4.getEditableText())
+                    || (editable == mEditTextWeight4.getEditableText())) {
+                if ((mEditTextPrice4.getText().toString().equals("."))
+                        || mEditTextWeight4.getText().toString().equals(".")
+                        || mEditTextWeight4.getText().toString().matches("^0([-.]?[0]*)$")) {
+                    mTextViewPricePerKg4.setText("0.00");
+                } else if ((mEditTextPrice4.getText().toString().isEmpty()
+                        || (mEditTextWeight4.getText().toString().isEmpty()))) {
+                    mTextViewPricePerKg4.setText("");
                 } else {
-                    float mPrice4 = Float.parseFloat(editTextPrice4.getText().toString());
-                    float mWeight4 = Float.parseFloat(editTextWeight4.getText().toString());
-                    textViewPrice4.setText(String.format("%.2f", mPrice4 * 1000 / mWeight4));
+                    float mPrice4 = Float.parseFloat(mEditTextPrice4.getText().toString());
+                    float mWeight4 = Float.parseFloat(mEditTextWeight4.getText().toString());
+                    mTextViewPricePerKg4.setText(String.format("%.2f", mPrice4 * 1000 / mWeight4));
                 }
             }
 
             // ------------------- The fifth product -------------------
-            if ((editable == editTextPrice5.getEditableText())
-                    || (editable == editTextWeight5.getEditableText())) {
-                if ((editTextPrice5.getText().toString().equals("."))
-                        || editTextWeight5.getText().toString().equals(".")
-                        || editTextWeight5.getText().toString().matches("^0([-.]?[0]*)$")) {
-                    textViewPrice5.setText("0.00");
-                } else if ((editTextPrice5.getText().toString().isEmpty()
-                        || (editTextWeight5.getText().toString().isEmpty()))) {
-                    textViewPrice5.setText("");
+            if ((editable == mEditTextPrice5.getEditableText())
+                    || (editable == mEditTextWeight5.getEditableText())) {
+                if ((mEditTextPrice5.getText().toString().equals("."))
+                        || mEditTextWeight5.getText().toString().equals(".")
+                        || mEditTextWeight5.getText().toString().matches("^0([-.]?[0]*)$")) {
+                    mTextViewPricePerKg5.setText("0.00");
+                } else if ((mEditTextPrice5.getText().toString().isEmpty()
+                        || (mEditTextWeight5.getText().toString().isEmpty()))) {
+                    mTextViewPricePerKg5.setText("");
                 } else {
-                    float mPrice5 = Float.parseFloat(editTextPrice5.getText().toString());
-                    float mWeight5 = Float.parseFloat(editTextWeight5.getText().toString());
-                    textViewPrice5.setText(String.format("%.2f", mPrice5 * 1000 / mWeight5));
+                    float mPrice5 = Float.parseFloat(mEditTextPrice5.getText().toString());
+                    float mWeight5 = Float.parseFloat(mEditTextWeight5.getText().toString());
+                    mTextViewPricePerKg5.setText(String.format("%.2f", mPrice5 * 1000 / mWeight5));
                 }
             }
 
             // ------------------- Finding minimum value -------------------
-            String stringFinalPrice1 = textViewPrice1.getText().toString();
-            String stringFinalPrice2 = textViewPrice2.getText().toString();
-            String stringFinalPrice3 = textViewPrice3.getText().toString();
-            String stringFinalPrice4 = textViewPrice4.getText().toString();
-            String stringFinalPrice5 = textViewPrice5.getText().toString();
+            String stringFinalPrice1 = mTextViewPricePerKg1.getText().toString();
+            String stringFinalPrice2 = mTextViewPricePerKg2.getText().toString();
+            String stringFinalPrice3 = mTextViewPricePerKg3.getText().toString();
+            String stringFinalPrice4 = mTextViewPricePerKg4.getText().toString();
+            String stringFinalPrice5 = mTextViewPricePerKg5.getText().toString();
 
             HashMap<String, Float> prices = new HashMap<>();
 
@@ -414,11 +363,11 @@ public class MainActivity extends AppCompatActivity {
                         System.out.println("Minimum of Map.Entry: \n" + entry.getKey() + " = " + entry.getValue());     // Print the key with min value
                         int ViewMin = getResources().getIdentifier(entry.getKey(), "id", getPackageName());
                         System.out.println("ViewMin Identifier: " + ViewMin);
-                        textViewPrice1.setBackgroundColor(Color.TRANSPARENT);
-                        textViewPrice2.setBackgroundColor(Color.TRANSPARENT);
-                        textViewPrice3.setBackgroundColor(Color.TRANSPARENT);
-                        textViewPrice4.setBackgroundColor(Color.TRANSPARENT);
-                        textViewPrice5.setBackgroundColor(Color.TRANSPARENT);
+                        mTextViewPricePerKg1.setBackgroundColor(Color.TRANSPARENT);
+                        mTextViewPricePerKg2.setBackgroundColor(Color.TRANSPARENT);
+                        mTextViewPricePerKg3.setBackgroundColor(Color.TRANSPARENT);
+                        mTextViewPricePerKg4.setBackgroundColor(Color.TRANSPARENT);
+                        mTextViewPricePerKg5.setBackgroundColor(Color.TRANSPARENT);
                         TextView TextViewPriceMin = findViewById(ViewMin);
                         TextViewPriceMin.setBackgroundColor(Color.parseColor("#3fc4fe"));
                     }
