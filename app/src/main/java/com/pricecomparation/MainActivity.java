@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -157,13 +158,12 @@ public class MainActivity extends AppCompatActivity {
             SharedPreferences mPrefs = getSharedPreferences("THEME", 0);
             boolean theme_boolean = mPrefs.getBoolean("theme_boolean", true);
             // Set theme to black
-            // Set theme to white
             theme_boolean = !theme_boolean;
 
             SharedPreferences.Editor mEditor = mPrefs.edit();
             mEditor.putBoolean("theme_boolean", theme_boolean).apply();
-            finish();
-            startActivity(new Intent(MainActivity.this, MainActivity.this.getClass()));
+            recreate();
+            //startActivity(new Intent(MainActivity.this, MainActivity.this.getClass()));
 
             Toast toast = Toast.makeText(getApplicationContext(),
                     "Theme successfully changed",
