@@ -1,7 +1,6 @@
 package com.pricecomparation;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -12,7 +11,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -327,7 +325,7 @@ public class MainActivity extends AppCompatActivity {
                 if (!arrayStringPrices[i].trim().isEmpty() && arrayStringPrices[i] != null) {
                     DecimalFormat df = new DecimalFormat("#.#");
                     DecimalFormatSymbols dfs = DecimalFormatSymbols.getInstance();
-                    dfs.setDecimalSeparator(',');
+                    //dfs.setDecimalSeparator(','); //This line is commented out for the correct calculation of decimals
                     df.setDecimalFormatSymbols(dfs);
                     try {
                         Log.i("debug", "arrayStringPrices[i]: " + df.parse(arrayStringPrices[i]));
