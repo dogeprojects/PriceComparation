@@ -249,7 +249,7 @@ public class MainActivity extends AppCompatActivity {
                 if ((mEditTextPrice2.getText().toString().equals("."))
                         || mEditTextWeight2.getText().toString().equals(".")
                         || mEditTextWeight2.getText().toString().matches("^0([-.]?[0]*)$")) {
-                    mEditTextPrice2.setText("0.00");
+                    mTextViewPricePerKg2.setText("0.00");
                 } else if ((mEditTextPrice2.getText().toString().isEmpty()
                         || (mEditTextWeight2.getText().toString().isEmpty()))) {
                     mTextViewPricePerKg2.setText("");
