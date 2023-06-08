@@ -234,6 +234,7 @@ public class MainActivity extends AppCompatActivity {
                         || mEditTextWeight1.getText().toString().equals(".")
                         || mEditTextWeight1.getText().toString().matches("^0([-.]?[0]*)$")) {
                     mTextViewPricePerKg1.setText("0.00");
+
                 } else if ((mEditTextPrice1.getText().toString().isEmpty()
                         || (mEditTextWeight1.getText().toString().isEmpty()))) {
                     mTextViewPricePerKg1.setText("");
@@ -242,6 +243,7 @@ public class MainActivity extends AppCompatActivity {
                     float mWeight1 = Float.parseFloat(mEditTextWeight1.getText().toString());
                     mTextViewPricePerKg1.setText(String.format("%.2f", mPrice1 * 1000 / mWeight1));
                 }
+                mTextViewPricePerKg1.setBackgroundColor(Color.TRANSPARENT);
             }
             // ------------------- The second product -------------------
             if ((editable == mEditTextPrice2.getEditableText())
@@ -258,7 +260,7 @@ public class MainActivity extends AppCompatActivity {
                     float mWeight2 = Float.parseFloat(mEditTextWeight2.getText().toString());
                     mTextViewPricePerKg2.setText(String.format("%.2f", mPrice2 * 1000 / mWeight2));
                 }
-
+                mTextViewPricePerKg2.setBackgroundColor(Color.TRANSPARENT);
             }
             // ------------------- The third product -------------------
             if ((editable == mEditTextPrice3.getEditableText())
@@ -275,6 +277,7 @@ public class MainActivity extends AppCompatActivity {
                     float mWeight3 = Float.parseFloat(mEditTextWeight3.getText().toString());
                     mTextViewPricePerKg3.setText(String.format("%.2f", mPrice3 * 1000 / mWeight3));
                 }
+                mTextViewPricePerKg3.setBackgroundColor(Color.TRANSPARENT);
             }
 
             // ------------------- The fourth product -------------------
@@ -292,6 +295,7 @@ public class MainActivity extends AppCompatActivity {
                     float mWeight4 = Float.parseFloat(mEditTextWeight4.getText().toString());
                     mTextViewPricePerKg4.setText(String.format("%.2f", mPrice4 * 1000 / mWeight4));
                 }
+                mTextViewPricePerKg4.setBackgroundColor(Color.TRANSPARENT);
             }
 
             // ------------------- The fifth product -------------------
@@ -309,6 +313,7 @@ public class MainActivity extends AppCompatActivity {
                     float mWeight5 = Float.parseFloat(mEditTextWeight5.getText().toString());
                     mTextViewPricePerKg5.setText(String.format("%.2f", mPrice5 * 1000 / mWeight5));
                 }
+                mTextViewPricePerKg5.setBackgroundColor(Color.TRANSPARENT);
             }
 
             // ------------------- Finding minimum value -------------------
@@ -381,7 +386,3 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
-
-
-
-
