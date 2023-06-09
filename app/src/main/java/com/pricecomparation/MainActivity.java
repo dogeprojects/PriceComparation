@@ -29,7 +29,6 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 
-//TODO localisation
 //TODO implement dynamic adding and removing items
 
 public class MainActivity extends AppCompatActivity {
@@ -111,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         //TODO Show change log by click on toolbar
         findViewById(R.id.toolbar).setOnClickListener(v -> {
             //Do something
-            Toast.makeText(MainActivity.this, "Thanks for using!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, R.string.ThanksForUsing, Toast.LENGTH_SHORT).show();
         });
     }
 
@@ -128,11 +127,11 @@ public class MainActivity extends AppCompatActivity {
         if (cardViewC4.getVisibility() == View.INVISIBLE) {
             cardViewC4.setVisibility(View.VISIBLE);
             cardViewC5.setVisibility(View.VISIBLE);
-            Toast.makeText(this, "Fields have been shown", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.FieldsShown, Toast.LENGTH_SHORT).show();
         } else {
             cardViewC4.setVisibility(View.INVISIBLE);
             cardViewC5.setVisibility(View.INVISIBLE);
-            Toast.makeText(this, "Fields have been hidden", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.FieldsHidden, Toast.LENGTH_SHORT).show();
 
             //clear fields after hiding
             mEditTextProduct4.setText("");
@@ -164,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
             //startActivity(new Intent(MainActivity.this, MainActivity.this.getClass()));
 
             Toast toast = Toast.makeText(getApplicationContext(),
-                    "Theme successfully changed",
+                    R.string.ThemeChanged,
                     Toast.LENGTH_SHORT);
             toast.show();
         }
@@ -202,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
             mTextViewPricePerKg5.setBackgroundColor(Color.TRANSPARENT);
 
             Toast toast = Toast.makeText(getApplicationContext(),
-                    "Fields cleared successfully",
+                    R.string.FieldsCheared,
                     Toast.LENGTH_SHORT);
             toast.show();
         }

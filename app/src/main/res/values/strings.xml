@@ -32,5 +32,12 @@
     <string name="editTextWeightPlaceholder5">Weight, gram</string>
     <string name="textViewPricePerKg5">Price per kg</string>
 
-    <string name="textViewVersion">Version: 1.5.23.060801</string>
+    <string name="textViewVersion" translatable="false">Version: 1.6.23.060801</string>
+
+    <string name="FieldsShown">Fields have been shown</string>
+    <string name="FieldsHidden">Fields have been hidden</string>
+    <string name="ThemeChanged">Theme successfully changed</string>
+    <string name="FieldsCheared">Fields cleared successfully</string>
+    <string name="ThanksForUsing">Thanks for using!</string>
+
 </resources>
