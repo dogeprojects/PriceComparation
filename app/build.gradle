@@ -8,7 +8,7 @@ android {
         //noinspection ExpiredTargetSdkVersion, that's need for properly work of cardView
         targetSdkVersion 28
         versionCode 1
-        versionName "1.6"
+        versionName "1.5"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
     buildTypes {
