@@ -1,8 +1,12 @@
 package com.pricecomparation;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Vibrator;
+import android.os.VibrationEffect;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     TextView mEditTextProduct1, mEditTextProduct2, mEditTextProduct3, mEditTextProduct4, mEditTextProduct5;
     TextView mTextViewPricePerKg1, mTextViewPricePerKg2, mTextViewPricePerKg3, mTextViewPricePerKg4, mTextViewPricePerKg5;
     CardView cardViewC4, cardViewC5;
+    int defaultVibrationEffect = 20;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+
     // Hide textEdit button handle
     public void onButtonHideClick(MenuItem item) {
 
@@ -113,11 +119,11 @@ public class MainActivity extends AppCompatActivity {
         if (cardViewC4.getVisibility() == View.INVISIBLE) {
             cardViewC4.setVisibility(View.VISIBLE);
             cardViewC5.setVisibility(View.VISIBLE);
-            Toast.makeText(this, R.string.FieldsShown, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, R.string.FieldsShown, Toast.LENGTH_SHORT).show();
         } else {
             cardViewC4.setVisibility(View.INVISIBLE);
             cardViewC5.setVisibility(View.INVISIBLE);
-            Toast.makeText(this, R.string.FieldsHidden, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, R.string.FieldsHidden, Toast.LENGTH_SHORT).show();
 
             //clear fields after hiding
             mEditTextProduct4.setText("");
@@ -130,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
             mEditTextWeight5.setText("");
             mTextViewPricePerKg5.setText("");
         }
+        vibrateDevice();
     }
 
     // Change theme button handle
@@ -137,21 +144,14 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if (item.getItemId() == R.id.change_theme) {
-            // Save application state
-            SharedPreferences mPrefs = getSharedPreferences("THEME", 0);
-            boolean theme_boolean = mPrefs.getBoolean("theme_boolean", true);
-            // Set theme to black
-            theme_boolean = !theme_boolean;
+            // Invert the theme_boolean value
+            boolean theme_boolean = !getSharedPreferences("THEME", Context.MODE_PRIVATE).getBoolean("theme_boolean", true);
 
-            SharedPreferences.Editor mEditor = mPrefs.edit();
-            mEditor.putBoolean("theme_boolean", theme_boolean).apply();
+            // Update the theme_boolean value in SharedPreferences
+            getSharedPreferences("THEME", Context.MODE_PRIVATE).edit().putBoolean("theme_boolean", theme_boolean).apply();
+
             recreate();
-            //startActivity(new Intent(MainActivity.this, MainActivity.this.getClass()));
-
-            Toast toast = Toast.makeText(getApplicationContext(),
-                    R.string.ThemeChanged,
-                    Toast.LENGTH_SHORT);
-            toast.show();
+            vibrateDevice();
         }
 
         if (item.getItemId() == R.id.clear_button) {
@@ -186,12 +186,23 @@ public class MainActivity extends AppCompatActivity {
             mTextViewPricePerKg4.setBackgroundColor(Color.TRANSPARENT);
             mTextViewPricePerKg5.setBackgroundColor(Color.TRANSPARENT);
 
-            Toast toast = Toast.makeText(getApplicationContext(),
-                    R.string.FieldsCheared,
-                    Toast.LENGTH_SHORT);
-            toast.show();
+            vibrateDevice();
         }
         return true;
+    }
+
+    private void vibrateDevice() {
+        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        if (vibrator == null || !vibrator.hasVibrator()) {
+            return; // The device does not support vibration
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            VibrationEffect vibrationEffect = VibrationEffect.createOneShot(defaultVibrationEffect, VibrationEffect.DEFAULT_AMPLITUDE);
+            vibrator.vibrate(vibrationEffect);
+        } else {
+            vibrator.vibrate(defaultVibrationEffect); // For devices below Android Oreo
+        }
     }
 
 }
