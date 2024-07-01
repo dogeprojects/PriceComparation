@@ -57,7 +57,7 @@
                         android:hint="@string/editTextWeightPlaceholder1" />
                     <!--android:text="@string/_editTextDefaultWeight1"-->
                     <TextView
-                        style="@style/EditTextStyle"
+                        style="@style/TextViewStyle"
                         android:gravity="center"
                         android:textStyle="bold"
                         android:textSize="20sp"
@@ -97,7 +97,7 @@
                         android:gravity="center"
                         android:hint="@string/editTextWeightPlaceholder2"/>
                     <TextView
-                        style="@style/EditTextStyle"
+                        style="@style/TextViewStyle"
                         android:gravity="center"
                         android:textStyle="bold"
                         android:textSize="20sp"
@@ -137,7 +137,7 @@
                         android:gravity="center"
                         android:hint="@string/editTextWeightPlaceholder3"/>
                     <TextView
-                        style="@style/EditTextStyle"
+                        style="@style/TextViewStyle"
                         android:gravity="center"
                         android:textStyle="bold"
                         android:textSize="20sp"
@@ -177,7 +177,7 @@
                         android:gravity="center"
                         android:hint="@string/editTextWeightPlaceholder4"/>
                     <TextView
-                        style="@style/EditTextStyle"
+                        style="@style/TextViewStyle"
                         android:gravity="center"
                         android:textStyle="bold"
                         android:textSize="20sp"
@@ -217,7 +217,7 @@
                         android:gravity="center"
                         android:hint="@string/editTextWeightPlaceholder5"/>
                     <TextView
-                        style="@style/EditTextStyle"
+                        style="@style/TextViewStyle"
                         android:gravity="center"
                         android:textStyle="bold"
                         android:textSize="20sp"

@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -24,11 +23,11 @@ import androidx.cardview.widget.CardView;
 public class MainActivity extends AppCompatActivity {
 
     EditText mEditTextPrice1, mEditTextPrice2, mEditTextPrice3, mEditTextPrice4, mEditTextPrice5;
-    TextView mEditTextWeight1, mEditTextWeight2, mEditTextWeight3, mEditTextWeight4, mEditTextWeight5;
-    TextView mEditTextProduct1, mEditTextProduct2, mEditTextProduct3, mEditTextProduct4, mEditTextProduct5;
+    EditText mEditTextWeight1, mEditTextWeight2, mEditTextWeight3, mEditTextWeight4, mEditTextWeight5;
+    EditText mEditTextProduct1, mEditTextProduct2, mEditTextProduct3, mEditTextProduct4, mEditTextProduct5;
     TextView mTextViewPricePerKg1, mTextViewPricePerKg2, mTextViewPricePerKg3, mTextViewPricePerKg4, mTextViewPricePerKg5;
     CardView cardViewC4, cardViewC5;
-    int defaultVibrationEffect = 20;
+    final int defaultVibrationEffect = 20;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,10 +98,6 @@ public class MainActivity extends AppCompatActivity {
         cardViewC5.setVisibility(View.INVISIBLE);
 
         //TODO Show change log by click on toolbar
-        findViewById(R.id.toolbar).setOnClickListener(v -> {
-            //Do something
-            Toast.makeText(MainActivity.this, R.string.ThanksForUsing, Toast.LENGTH_SHORT).show();
-        });
     }
 
     @Override
@@ -114,80 +109,62 @@ public class MainActivity extends AppCompatActivity {
 
     // Hide textEdit button handle
     public void onButtonHideClick(MenuItem item) {
+        int visibility = cardViewC4.getVisibility() == View.INVISIBLE ? View.VISIBLE : View.INVISIBLE;
+        cardViewC4.setVisibility(visibility);
+        cardViewC5.setVisibility(visibility);
 
-        //Toggle
-        if (cardViewC4.getVisibility() == View.INVISIBLE) {
-            cardViewC4.setVisibility(View.VISIBLE);
-            cardViewC5.setVisibility(View.VISIBLE);
-            //Toast.makeText(this, R.string.FieldsShown, Toast.LENGTH_SHORT).show();
-        } else {
-            cardViewC4.setVisibility(View.INVISIBLE);
-            cardViewC5.setVisibility(View.INVISIBLE);
-            //Toast.makeText(this, R.string.FieldsHidden, Toast.LENGTH_SHORT).show();
+        //Clear fields after hiding
+        clearFields(mEditTextProduct4, mEditTextPrice4, mEditTextWeight4, mTextViewPricePerKg4);
+        clearFields(mEditTextProduct5, mEditTextPrice5, mEditTextWeight5, mTextViewPricePerKg5);
 
-            //clear fields after hiding
-            mEditTextProduct4.setText("");
-            mEditTextPrice4.setText("");
-            mEditTextWeight4.setText("");
-            mTextViewPricePerKg4.setText("");
-
-            mEditTextProduct5.setText("");
-            mEditTextPrice5.setText("");
-            mEditTextWeight5.setText("");
-            mTextViewPricePerKg5.setText("");
-        }
         vibrateDevice();
     }
+
+    private void clearFields(EditText editTextProduct, EditText editTextPrice, EditText editTextWeight, TextView textViewPricePerKg){
+        editTextProduct.setText(null);
+        editTextPrice.setText(null);
+        editTextWeight.setText(null);
+        textViewPricePerKg.setText(null);
+    }
+
+
 
     // Change theme button handle
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         if (item.getItemId() == R.id.change_theme) {
-            // Invert the theme_boolean value
-            boolean theme_boolean = !getSharedPreferences("THEME", Context.MODE_PRIVATE).getBoolean("theme_boolean", true);
+            // Save state
+            SharedPreferences mPrefs = getSharedPreferences("THEME", 0);
+            boolean theme_boolean = mPrefs.getBoolean("theme_boolean", true);
+            // Change theme
+            theme_boolean = !theme_boolean;
 
-            // Update the theme_boolean value in SharedPreferences
-            getSharedPreferences("THEME", Context.MODE_PRIVATE).edit().putBoolean("theme_boolean", theme_boolean).apply();
-
+            SharedPreferences.Editor mEditor = mPrefs.edit();
+            mEditor.putBoolean("theme_boolean", theme_boolean).apply();
             recreate();
+
             vibrateDevice();
         }
+
 
         if (item.getItemId() == R.id.clear_button) {
-            mEditTextProduct1.setText("");
-            mEditTextPrice1.setText("");
-            mEditTextWeight1.setText("");
-            mTextViewPricePerKg1.setText("");
+            for (int i = 1; i <= 5; i++) {
+                EditText productEditText = findViewById(getResources().getIdentifier("editTextProduct" + i, "id", getPackageName()));
+                EditText priceEditText = findViewById(getResources().getIdentifier("editTextPrice" + i, "id", getPackageName()));
+                EditText weightEditText = findViewById(getResources().getIdentifier("editTextWeight" + i, "id", getPackageName()));
+                TextView pricePerKgTextView = findViewById(getResources().getIdentifier("textViewPricePerKg" + i, "id", getPackageName()));
 
-            mEditTextProduct2.setText("");
-            mEditTextPrice2.setText("");
-            mEditTextWeight2.setText("");
-            mTextViewPricePerKg2.setText("");
-
-            mEditTextProduct3.setText("");
-            mEditTextPrice3.setText("");
-            mEditTextWeight3.setText("");
-            mTextViewPricePerKg3.setText("");
-
-            mEditTextProduct4.setText("");
-            mEditTextPrice4.setText("");
-            mEditTextWeight4.setText("");
-            mTextViewPricePerKg4.setText("");
-
-            mEditTextProduct5.setText("");
-            mEditTextPrice5.setText("");
-            mEditTextWeight5.setText("");
-            mTextViewPricePerKg5.setText("");
-
-            mTextViewPricePerKg1.setBackgroundColor(Color.TRANSPARENT);
-            mTextViewPricePerKg2.setBackgroundColor(Color.TRANSPARENT);
-            mTextViewPricePerKg3.setBackgroundColor(Color.TRANSPARENT);
-            mTextViewPricePerKg4.setBackgroundColor(Color.TRANSPARENT);
-            mTextViewPricePerKg5.setBackgroundColor(Color.TRANSPARENT);
+                productEditText.setText("");
+                priceEditText.setText("");
+                weightEditText.setText("");
+                pricePerKgTextView.setText("");
+                pricePerKgTextView.setBackgroundColor(Color.TRANSPARENT);
+            }
 
             vibrateDevice();
         }
+
         return true;
     }
 

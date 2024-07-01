@@ -37,11 +37,4 @@ public class ExampleInstrumentedTest {
         onView(withId(R.id.textViewPricePerKg1)).check(matches(withText("")));
     }
 
-    @Test
-    public void useAppContext() {
-        // Context of the app under test.
-       // Context appContext = InstrumentationRegistry.getTargetContext();
-
-      //  assertEquals("com.priceperkilo", appContext.getPackageName());
-    }
 }

@@ -1,29 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--    <color name="colorPrimaryDark">#14569C</color>
-        <color name="colorPrimary">#14569C</color>
-            <color name="cardBackgroundColor">#BC6B7C83</color>
-        -->
-    <!--old dark colors:-->
-<!--    <color name="colorPrimaryDark">#222E3C</color>
-    <color name="colorPrimary">#222E3C</color>
-    <color name="colorAccent">#3fc4fe</color>
-    <color name="textColorPrimary">#860784B5</color>
-    <color name="textColor">#FFFFFF</color>
-    <color name="hintColor">#A980D8FF</color>80D8FF
-    &lt;!&ndash;<color name="colorBackground">#2c3e50</color>&ndash;&gt;
-    <color name="colorBackground">#2F3F51</color>
-    <color name="cardBackgroundColor">#BC6B7C83</color>
-    <color name="versionColor">#FFFFFF</color>-->
 
-    <color name="colorPrimaryDark">#44475a</color>
-    <color name="colorPrimary">#44475a</color>
+    <color name="colorPrimaryDark">#212121</color>
+    <color name="colorPrimary">#212121</color>
     <color name="colorAccent">#3fc4fe</color>
-    <color name="textColorPrimary">#860784B5</color>
+    <color name="textColorPrimary">#FFFFFF</color>
     <color name="textColor">#FFFFFF</color>
-    <color name="hintColor">#C9CEDD</color>
-    <color name="colorBackground">#282a36</color>
-    <color name="cardBackgroundColor">#66ADB5B8</color>
-    <color name="versionColor">#66FFFFFF</color>
+    <color name="textViewColor">#FFFFFF</color>
+    <color name="bestPriceColor">#3fc4fe</color>
+    <color name="hintColor">#8D8E9D</color>
+    <color name="colorBackground">#121212</color>
+    <color name="cardBackgroundColor">#424242</color>
+    <color name="versionColor">#80FFFFFF</color>
 
 </resources>

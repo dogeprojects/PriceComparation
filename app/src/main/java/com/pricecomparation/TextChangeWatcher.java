@@ -7,9 +7,8 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.TextView;
-
 import androidx.annotation.RequiresApi;
-
+import androidx.core.content.ContextCompat;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.ParseException;
@@ -146,7 +145,6 @@ class TextChangeWatcher implements TextWatcher {
                 df.setDecimalFormatSymbols(dfs);
                 try {
                     Log.i("debug", "arrayStringPrices[i]: " + df.parse(arrayStringPrices[i]));
-                    //System.out.println(df.parse(arrayStringPrices[i]));
                     prices.put("textViewPricePerKg" + (i + 1), Float.parseFloat(String.valueOf(df.parse(arrayStringPrices[i]))));
                 } catch (ParseException e) {
                     e.printStackTrace();
@@ -184,8 +182,7 @@ class TextChangeWatcher implements TextWatcher {
                     mainActivity.mTextViewPricePerKg4.setBackgroundColor(Color.TRANSPARENT);
                     mainActivity.mTextViewPricePerKg5.setBackgroundColor(Color.TRANSPARENT);
                     TextView TextViewPriceMin = mainActivity.findViewById(ViewMin);
-                    TextViewPriceMin.setBackgroundColor(Color.parseColor("#3fc4fe"));
-                }
+                    TextViewPriceMin.setBackgroundColor(ContextCompat.getColor(mainActivity, R.color.bestPriceColor));                }
             }
         }
 

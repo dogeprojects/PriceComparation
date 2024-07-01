@@ -32,9 +32,5 @@
     <string name="editTextWeightPlaceholder5">Вес, грамм</string>
     <string name="textViewPricePerKg5">Цена за кг</string>
 
-    <string name="FieldsShown">Дополнительные поля отображены</string>
-    <string name="FieldsHidden">Дополнительные поля скрыты</string>
-    <string name="ThemeChanged">Тема изменена</string>
-    <string name="FieldsCheared"> Все поля успешно очищены</string>
     <string name="ThanksForUsing">Спасибо за использование!</string>
 </resources>
