@@ -4,11 +4,14 @@ import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Build;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.TextView;
+
 import androidx.annotation.RequiresApi;
 import androidx.core.content.ContextCompat;
+
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.ParseException;
@@ -127,30 +130,32 @@ class TextChangeWatcher implements TextWatcher {
             mainActivity.mTextViewPricePerKg5.setBackgroundColor(Color.TRANSPARENT);
         }
 
-        // ------------------- Finding minimum value -------------------
-        String stringFinalPrice1 = mainActivity.mTextViewPricePerKg1.getText().toString();
-        String stringFinalPrice2 = mainActivity.mTextViewPricePerKg2.getText().toString();
-        String stringFinalPrice3 = mainActivity.mTextViewPricePerKg3.getText().toString();
-        String stringFinalPrice4 = mainActivity.mTextViewPricePerKg4.getText().toString();
-        String stringFinalPrice5 = mainActivity.mTextViewPricePerKg5.getText().toString();
-
+// ------------------- Finding minimum value -------------------
         HashMap<String, Float> prices = new HashMap<>();
 
-        String[] arrayStringPrices = {stringFinalPrice1, stringFinalPrice2, stringFinalPrice3, stringFinalPrice4, stringFinalPrice5};
+        String[] arrayStringPrices = {
+                mainActivity.mTextViewPricePerKg1.getText().toString(),
+                mainActivity.mTextViewPricePerKg2.getText().toString(),
+                mainActivity.mTextViewPricePerKg3.getText().toString(),
+                mainActivity.mTextViewPricePerKg4.getText().toString(),
+                mainActivity.mTextViewPricePerKg5.getText().toString()
+        };
+
         for (int i = 0; i < arrayStringPrices.length; i++) {
-            if (!arrayStringPrices[i].trim().isEmpty() && arrayStringPrices[i] != null) {
+            if (!TextUtils.isEmpty(arrayStringPrices[i])) {
                 DecimalFormat df = new DecimalFormat("#.#");
                 DecimalFormatSymbols dfs = DecimalFormatSymbols.getInstance();
                 //dfs.setDecimalSeparator(','); //This line is commented out for the correct calculation of decimals
                 df.setDecimalFormatSymbols(dfs);
                 try {
                     Log.i("debug", "arrayStringPrices[i]: " + df.parse(arrayStringPrices[i]));
-                    prices.put("textViewPricePerKg" + (i + 1), Float.parseFloat(String.valueOf(df.parse(arrayStringPrices[i]))));
+                    prices.put("textViewPricePerKg" + (i + 1), Float.parseFloat(df.format(df.parse(arrayStringPrices[i]))));
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
             }
         }
+
 
         Log.i("debug", "HashMap: " + prices.keySet() + " = " + prices.values());
 
@@ -169,20 +174,21 @@ class TextChangeWatcher implements TextWatcher {
             Log.i("debug", "Sorted Hashmap " + entry.getKey() + " = " + entry.getValue());
         }
 
-        if (!prices.values().isEmpty()) {
-            Float minValueInMap = (Collections.min(prices.values()));
-            for (Map.Entry<String, Float> entry : prices.entrySet()) {  // Iterate through HashMap
+        if (!prices.isEmpty()) {
+            float minValueInMap = Collections.min(prices.values());
+            for (Map.Entry<String, Float> entry : prices.entrySet()) {
                 if (entry.getValue() == minValueInMap) {
-                    System.out.println("Minimum of Map.Entry: \n" + entry.getKey() + " = " + entry.getValue());     // Print the key with min value
-                    int ViewMin = mainActivity.getResources().getIdentifier(entry.getKey(), "id", mainActivity.getPackageName());
-                    System.out.println("ViewMin Identifier: " + ViewMin);
+                    Log.i("Output", "Minimum of Map.Entry: \n" + entry.getKey() + " = " + entry.getValue());
+                    int viewMin = mainActivity.getResources().getIdentifier(entry.getKey(), "id", mainActivity.getPackageName());
+                    Log.i("Output", "ViewMin Identifier: " + viewMin);
                     mainActivity.mTextViewPricePerKg1.setBackgroundColor(Color.TRANSPARENT);
                     mainActivity.mTextViewPricePerKg2.setBackgroundColor(Color.TRANSPARENT);
                     mainActivity.mTextViewPricePerKg3.setBackgroundColor(Color.TRANSPARENT);
                     mainActivity.mTextViewPricePerKg4.setBackgroundColor(Color.TRANSPARENT);
                     mainActivity.mTextViewPricePerKg5.setBackgroundColor(Color.TRANSPARENT);
-                    TextView TextViewPriceMin = mainActivity.findViewById(ViewMin);
-                    TextViewPriceMin.setBackgroundColor(ContextCompat.getColor(mainActivity, R.color.bestPriceColor));                }
+                    TextView textViewPriceMin = mainActivity.findViewById(viewMin);
+                    textViewPriceMin.setBackgroundColor(ContextCompat.getColor(mainActivity, R.color.bestPriceColor));
+                }
             }
         }
 

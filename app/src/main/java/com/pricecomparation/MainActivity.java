@@ -120,14 +120,12 @@ public class MainActivity extends AppCompatActivity {
         vibrateDevice();
     }
 
-    private void clearFields(EditText editTextProduct, EditText editTextPrice, EditText editTextWeight, TextView textViewPricePerKg){
+    private void clearFields(EditText editTextProduct, EditText editTextPrice, EditText editTextWeight, TextView textViewPricePerKg) {
         editTextProduct.setText(null);
         editTextPrice.setText(null);
         editTextWeight.setText(null);
         textViewPricePerKg.setText(null);
     }
-
-
 
     // Change theme button handle
     @Override
@@ -146,7 +144,6 @@ public class MainActivity extends AppCompatActivity {
 
             vibrateDevice();
         }
-
 
         if (item.getItemId() == R.id.clear_button) {
             for (int i = 1; i <= 5; i++) {
