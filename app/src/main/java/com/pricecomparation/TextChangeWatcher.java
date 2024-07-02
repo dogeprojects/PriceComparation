@@ -42,15 +42,11 @@ class TextChangeWatcher implements TextWatcher {
     @Override
     public void afterTextChanged(Editable editable) {
         // ------------------- The first product --------------------
-        if ((editable == mainActivity.mEditTextPrice1.getEditableText())
-                || (editable == mainActivity.mEditTextWeight1.getEditableText())) {
-            if ((mainActivity.mEditTextPrice1.getText().toString().equals("."))
-                    || mainActivity.mEditTextWeight1.getText().toString().equals(".")
-                    || mainActivity.mEditTextWeight1.getText().toString().matches("^0([-.]?[0]*)$")) {
+        if ((editable == mainActivity.mEditTextPrice1.getEditableText()) || (editable == mainActivity.mEditTextWeight1.getEditableText())) {
+            if ((mainActivity.mEditTextPrice1.getText().toString().equals(".")) || mainActivity.mEditTextWeight1.getText().toString().equals(".") || mainActivity.mEditTextWeight1.getText().toString().matches("^0([-.]?[0]*)$")) {
                 mainActivity.mTextViewPricePerKg1.setText("0.00");
 
-            } else if ((mainActivity.mEditTextPrice1.getText().toString().isEmpty()
-                    || (mainActivity.mEditTextWeight1.getText().toString().isEmpty()))) {
+            } else if ((mainActivity.mEditTextPrice1.getText().toString().isEmpty() || (mainActivity.mEditTextWeight1.getText().toString().isEmpty()))) {
                 mainActivity.mTextViewPricePerKg1.setText("");
             } else {
                 float mPrice1 = Float.parseFloat(mainActivity.mEditTextPrice1.getText().toString());
@@ -60,14 +56,10 @@ class TextChangeWatcher implements TextWatcher {
             mainActivity.mTextViewPricePerKg1.setBackgroundColor(Color.TRANSPARENT);
         }
         // ------------------- The second product -------------------
-        if ((editable == mainActivity.mEditTextPrice2.getEditableText())
-                || (editable == mainActivity.mEditTextWeight2.getEditableText())) {
-            if ((mainActivity.mEditTextPrice2.getText().toString().equals("."))
-                    || mainActivity.mEditTextWeight2.getText().toString().equals(".")
-                    || mainActivity.mEditTextWeight2.getText().toString().matches("^0([-.]?[0]*)$")) {
+        if ((editable == mainActivity.mEditTextPrice2.getEditableText()) || (editable == mainActivity.mEditTextWeight2.getEditableText())) {
+            if ((mainActivity.mEditTextPrice2.getText().toString().equals(".")) || mainActivity.mEditTextWeight2.getText().toString().equals(".") || mainActivity.mEditTextWeight2.getText().toString().matches("^0([-.]?[0]*)$")) {
                 mainActivity.mTextViewPricePerKg2.setText("0.00");
-            } else if ((mainActivity.mEditTextPrice2.getText().toString().isEmpty()
-                    || (mainActivity.mEditTextWeight2.getText().toString().isEmpty()))) {
+            } else if ((mainActivity.mEditTextPrice2.getText().toString().isEmpty() || (mainActivity.mEditTextWeight2.getText().toString().isEmpty()))) {
                 mainActivity.mTextViewPricePerKg2.setText("");
             } else {
                 float mPrice2 = Float.parseFloat(mainActivity.mEditTextPrice2.getText().toString());
@@ -77,14 +69,10 @@ class TextChangeWatcher implements TextWatcher {
             mainActivity.mTextViewPricePerKg2.setBackgroundColor(Color.TRANSPARENT);
         }
         // ------------------- The third product -------------------
-        if ((editable == mainActivity.mEditTextPrice3.getEditableText())
-                || (editable == mainActivity.mEditTextWeight3.getEditableText())) {
-            if ((mainActivity.mEditTextPrice3.getText().toString().equals("."))
-                    || mainActivity.mEditTextWeight3.getText().toString().equals(".")
-                    || mainActivity.mEditTextWeight3.getText().toString().matches("^0([-.]?[0]*)$")) {
+        if ((editable == mainActivity.mEditTextPrice3.getEditableText()) || (editable == mainActivity.mEditTextWeight3.getEditableText())) {
+            if ((mainActivity.mEditTextPrice3.getText().toString().equals(".")) || mainActivity.mEditTextWeight3.getText().toString().equals(".") || mainActivity.mEditTextWeight3.getText().toString().matches("^0([-.]?[0]*)$")) {
                 mainActivity.mTextViewPricePerKg3.setText("0.00");
-            } else if ((mainActivity.mEditTextPrice3.getText().toString().isEmpty()
-                    || (mainActivity.mEditTextWeight3.getText().toString().isEmpty()))) {
+            } else if ((mainActivity.mEditTextPrice3.getText().toString().isEmpty() || (mainActivity.mEditTextWeight3.getText().toString().isEmpty()))) {
                 mainActivity.mTextViewPricePerKg3.setText("");
             } else {
                 float mPrice3 = Float.parseFloat(mainActivity.mEditTextPrice3.getText().toString());
@@ -95,14 +83,10 @@ class TextChangeWatcher implements TextWatcher {
         }
 
         // ------------------- The fourth product -------------------
-        if ((editable == mainActivity.mEditTextPrice4.getEditableText())
-                || (editable == mainActivity.mEditTextWeight4.getEditableText())) {
-            if ((mainActivity.mEditTextPrice4.getText().toString().equals("."))
-                    || mainActivity.mEditTextWeight4.getText().toString().equals(".")
-                    || mainActivity.mEditTextWeight4.getText().toString().matches("^0([-.]?[0]*)$")) {
+        if ((editable == mainActivity.mEditTextPrice4.getEditableText()) || (editable == mainActivity.mEditTextWeight4.getEditableText())) {
+            if ((mainActivity.mEditTextPrice4.getText().toString().equals(".")) || mainActivity.mEditTextWeight4.getText().toString().equals(".") || mainActivity.mEditTextWeight4.getText().toString().matches("^0([-.]?[0]*)$")) {
                 mainActivity.mTextViewPricePerKg4.setText("0.00");
-            } else if ((mainActivity.mEditTextPrice4.getText().toString().isEmpty()
-                    || (mainActivity.mEditTextWeight4.getText().toString().isEmpty()))) {
+            } else if ((mainActivity.mEditTextPrice4.getText().toString().isEmpty() || (mainActivity.mEditTextWeight4.getText().toString().isEmpty()))) {
                 mainActivity.mTextViewPricePerKg4.setText("");
             } else {
                 float mPrice4 = Float.parseFloat(mainActivity.mEditTextPrice4.getText().toString());
@@ -113,14 +97,10 @@ class TextChangeWatcher implements TextWatcher {
         }
 
         // ------------------- The fifth product -------------------
-        if ((editable == mainActivity.mEditTextPrice5.getEditableText())
-                || (editable == mainActivity.mEditTextWeight5.getEditableText())) {
-            if ((mainActivity.mEditTextPrice5.getText().toString().equals("."))
-                    || mainActivity.mEditTextWeight5.getText().toString().equals(".")
-                    || mainActivity.mEditTextWeight5.getText().toString().matches("^0([-.]?[0]*)$")) {
+        if ((editable == mainActivity.mEditTextPrice5.getEditableText()) || (editable == mainActivity.mEditTextWeight5.getEditableText())) {
+            if ((mainActivity.mEditTextPrice5.getText().toString().equals(".")) || mainActivity.mEditTextWeight5.getText().toString().equals(".") || mainActivity.mEditTextWeight5.getText().toString().matches("^0([-.]?[0]*)$")) {
                 mainActivity.mTextViewPricePerKg5.setText("0.00");
-            } else if ((mainActivity.mEditTextPrice5.getText().toString().isEmpty()
-                    || (mainActivity.mEditTextWeight5.getText().toString().isEmpty()))) {
+            } else if ((mainActivity.mEditTextPrice5.getText().toString().isEmpty() || (mainActivity.mEditTextWeight5.getText().toString().isEmpty()))) {
                 mainActivity.mTextViewPricePerKg5.setText("");
             } else {
                 float mPrice5 = Float.parseFloat(mainActivity.mEditTextPrice5.getText().toString());
@@ -133,29 +113,25 @@ class TextChangeWatcher implements TextWatcher {
 // ------------------- Finding minimum value -------------------
         HashMap<String, Float> prices = new HashMap<>();
 
-        String[] arrayStringPrices = {
-                mainActivity.mTextViewPricePerKg1.getText().toString(),
-                mainActivity.mTextViewPricePerKg2.getText().toString(),
-                mainActivity.mTextViewPricePerKg3.getText().toString(),
-                mainActivity.mTextViewPricePerKg4.getText().toString(),
-                mainActivity.mTextViewPricePerKg5.getText().toString()
-        };
+        String[] arrayStringPrices = {mainActivity.mTextViewPricePerKg1.getText().toString(), mainActivity.mTextViewPricePerKg2.getText().toString(), mainActivity.mTextViewPricePerKg3.getText().toString(), mainActivity.mTextViewPricePerKg4.getText().toString(), mainActivity.mTextViewPricePerKg5.getText().toString()};
 
         for (int i = 0; i < arrayStringPrices.length; i++) {
             if (!TextUtils.isEmpty(arrayStringPrices[i])) {
                 DecimalFormat df = new DecimalFormat("#.#");
-                DecimalFormatSymbols dfs = DecimalFormatSymbols.getInstance();
-                //dfs.setDecimalSeparator(','); //This line is commented out for the correct calculation of decimals
+
+                DecimalFormatSymbols dfs = new DecimalFormatSymbols();
+                dfs.setDecimalSeparator(',');
                 df.setDecimalFormatSymbols(dfs);
+
                 try {
-                    Log.i("debug", "arrayStringPrices[i]: " + df.parse(arrayStringPrices[i]));
-                    prices.put("textViewPricePerKg" + (i + 1), Float.parseFloat(df.format(df.parse(arrayStringPrices[i]))));
+                    Number number = df.parse(arrayStringPrices[i]);
+                    float floatNumber = number.floatValue();
+                    prices.put("textViewPricePerKg" + (i + 1), floatNumber);
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
             }
         }
-
 
         Log.i("debug", "HashMap: " + prices.keySet() + " = " + prices.values());
 
