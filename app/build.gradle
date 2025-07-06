@@ -10,6 +10,7 @@ android {
         versionCode 1
         versionName "1.7"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        namespace 'com.example.pricecomparation'
     }
     buildTypes {
         release {

@@ -18,6 +18,8 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 
+import com.example.pricecomparation.R;
+
 //TODO implement dynamic adding and removing items
 
 public class MainActivity extends AppCompatActivity {
